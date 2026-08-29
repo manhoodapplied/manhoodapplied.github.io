@@ -25,11 +25,13 @@ Launch verification: GitHub Pages status `built`, HTTPS enforced, all public lau
 
 - [x] Add the URL-prefix property `https://manhoodapplied.github.io/`.
 - [x] Add Google's permanent HTML meta verification token to the shared page head.
-- [ ] Verify ownership after the verification tag is live in production.
-- [ ] Submit `https://manhoodapplied.github.io/sitemap-index.xml`.
-- [ ] Request indexing for the homepage and the four newest standalone articles.
+- [x] Verify ownership after the verification tag is live in production.
+- [x] Submit `https://manhoodapplied.github.io/sitemap-index.xml` and the concrete `sitemap-0.xml` fallback.
+- [x] Request indexing for the homepage and the four newest standalone articles.
 
 The sitemap is the whole-site discovery mechanism. Manual URL inspection requests prioritize selected pages but do not guarantee or accelerate inclusion; Google controls crawl and indexing timing.
+
+Search Console launch status on August 29, 2026: ownership verified by HTML tag; the homepage and all four standalone articles were accepted into Google's priority crawl queue. Both sitemap submissions were accepted by the UI, but their immediate first read showed `Couldn't fetch` even though the public files returned HTTP 200 with `application/xml`. Treat that as pending Google processing and recheck the Sitemaps report before changing the generated XML.
 
 ## Social profiles
 

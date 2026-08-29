@@ -93,3 +93,5 @@
 **Decision:** Place the Google Search Console verification token in the shared HTML head, retain the canonical URL-prefix property, and submit the generated sitemap index after deployment.
 
 **Why:** A shared meta tag survives normal content releases and verifies every generated page without adding a repository-only HTML file. The sitemap provides whole-site discovery; URL Inspection requests are reserved for the homepage and highest-priority new articles.
+
+**Launch outcome:** Ownership verification succeeded. Search Console accepted both sitemap submissions and priority indexing requests for the homepage plus all four standalone articles. The sitemap rows initially reported `Couldn't fetch` despite verified HTTP 200 XML responses; retain the generated files and recheck Google's processing state before treating that transient first read as an implementation defect.
