@@ -70,7 +70,7 @@
 
 **Why:** Instagram's native card is approximately `1.25 × width + 190px` at the widths used by MAPP. The previous fixed `760px` height clipped both carousel and Reel cards and exposed an internal scrollbar. A responsive full-document frame keeps the complete post visible and leaves the website as the only scrolling surface.
 
-**Visual refinement:** Native posts sit directly on the page canvas. The gallery and article embed stages retain their loading, sizing and fallback responsibilities but have no background panel, border or padding box around the platform's own complete card.
+**Visual refinement:** Native posts sit directly on the page canvas. The gallery and article embed stages retain their loading, sizing and fallback responsibilities but have no background panel, border or padding box around the platform's own complete card. Gallery Instagram frames fill the complete column width; no fixed frame cap may recreate empty lateral gutters.
 
 ## 2026-08-29 — Reconcile the public gallery with Instagram's 14 live posts
 

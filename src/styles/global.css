@@ -91,7 +91,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .native-social__stage > p { padding: 28px; }
 .native-social__stage iframe { width: min(100%, 540px); border: 0; }
 .native-social__frame--video { aspect-ratio: 9 / 16; max-height: 780px; }
-.native-social__stage iframe.instagram-media { width: 100% !important; min-width: 0 !important; max-width: 540px !important; height: min(calc(125cqi + 200px), 875px) !important; max-height: none !important; overflow: hidden; }
+.native-social__stage iframe.instagram-media { width: 100% !important; min-width: 0 !important; max-width: none !important; height: calc(125cqi + 200px) !important; max-height: none !important; overflow: hidden; }
 .native-social__stage a { color: var(--paper); text-decoration: underline; text-decoration-color: var(--signal); text-underline-offset: 4px; }
 .social-post-card__footer { margin-top: auto; padding: 18px 0 0; display: grid; gap: 16px; }
 .social-post-card__links { display: flex; flex-wrap: wrap; gap: 10px 18px; }
