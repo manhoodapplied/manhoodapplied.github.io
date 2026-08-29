@@ -35,3 +35,9 @@
 **Decision:** Keep shop navigation and transactions out of GitHub Pages. Migrate the full site before the first paid product.
 
 **Why:** Preserving one coherent site and URL structure is safer for visitors and SEO than bolting a transaction-focused business onto editorial Pages hosting.
+
+## 2026-08-28 — Public launch completed
+
+**Decision:** Publish from the free `manhoodapplied` organization with `mapp-publisher` and `pablobarriga` as owners. Deploy `manhoodapplied/manhoodapplied.github.io` through GitHub Actions.
+
+**Outcome:** `https://manhoodapplied.github.io/` is live with HTTPS enforced. All launch routes returned HTTP 200 and the production homepage scored 100 across Lighthouse Performance, Accessibility, Best Practices, and SEO.

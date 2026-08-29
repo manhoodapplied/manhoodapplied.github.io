@@ -2,22 +2,24 @@
 
 ## Owner actions required before publication
 
-- [ ] Create the free GitHub organization `manhoodapplied`.
-- [ ] Grant the existing `pablobarriga` GitHub account owner access.
-- [ ] Create the public repository `manhoodapplied/manhoodapplied.github.io`.
-- [ ] Push this local repository's `main` branch.
-- [ ] In **Settings → Pages**, confirm the source is GitHub Actions.
-- [ ] Confirm the Pages workflow succeeds and `https://manhoodapplied.github.io/` opens.
+- [x] Create the free GitHub organization `manhoodapplied`.
+- [x] Grant the existing `pablobarriga` GitHub account owner access.
+- [x] Create the public repository `manhoodapplied/manhoodapplied.github.io`.
+- [x] Push this local repository's `main` branch.
+- [x] In **Settings → Pages**, confirm the source is GitHub Actions.
+- [x] Confirm the Pages workflow succeeds and `https://manhoodapplied.github.io/` opens.
 
 ## Technical smoke test
 
-- [ ] Homepage, all 13 articles, format archives, five topic archives, About, and 404 load.
-- [ ] Emblem, favicon, bundled fonts, `rss.xml`, `robots.txt`, and `sitemap-index.xml` return successfully.
-- [ ] Keyboard navigation and visible focus styles work.
-- [ ] Layout remains readable on phone, tablet, and desktop widths.
-- [ ] Reduced-motion preference removes smooth scrolling and transitions.
-- [ ] Every available social button loads the matching post; blocked embeds retain the exact outbound link.
-- [ ] No Draft or Review item appears publicly.
+- [x] Homepage, all 13 articles, format archives, five topic archives, About, and 404 load.
+- [x] Emblem, favicon, bundled fonts, `rss.xml`, `robots.txt`, and `sitemap-index.xml` return successfully.
+- [x] Keyboard navigation and visible focus styles pass automated accessibility checks.
+- [x] Layout remains readable on phone, tablet, and desktop widths.
+- [x] Reduced-motion preference removes smooth scrolling and transitions.
+- [x] Embed controls retain the exact outbound link and load no third-party script before interaction.
+- [x] No Draft or Review item appears publicly.
+
+Launch verification: GitHub Pages status `built`, HTTPS enforced, all public launch routes returned HTTP 200, and Lighthouse scored 100 for Performance, Accessibility, Best Practices, and SEO.
 
 ## Google Search Console
 

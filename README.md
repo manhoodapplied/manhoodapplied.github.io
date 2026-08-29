@@ -28,6 +28,6 @@ npm run verify
 
 ## Publishing status
 
-The implementation is ready locally. Publication requires the GitHub owner to create the free `manhoodapplied` organization, grant `pablobarriga` owner access, create the public `manhoodapplied.github.io` repository, and push this repository's `main` branch. The included workflow then deploys on every push.
+The site is live at <https://manhoodapplied.github.io/> from the public repository `manhoodapplied/manhoodapplied.github.io`. The free `manhoodapplied` organization is owned by both `mapp-publisher` and `pablobarriga`. Every push to `main` runs the included GitHub Pages workflow.
 
 See [Publishing](docs/PUBLISHING.md), [Architecture](docs/ARCHITECTURE.md), [SEO launch](docs/SEO-LAUNCH.md), and the [Decision log](docs/DECISIONS.md).
