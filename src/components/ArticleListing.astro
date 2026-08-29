@@ -1,0 +1,24 @@
+---
+import ArticleCard from './ArticleCard.astro';
+import TerminalTitle from './TerminalTitle.astro';
+import type { Article } from '../utils/content';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  articles: Article[];
+}
+
+const { eyebrow, title, description, articles } = Astro.props;
+---
+
+<header class="page-intro">
+  <p class="eyebrow">{eyebrow}</p>
+  <TerminalTitle as="h1">{title}</TerminalTitle>
+  <p>{description}</p>
+</header>
+<section class="section listing-section" aria-label={title}>
+  <div class="listing-count"><span>{articles.length}</span> published {articles.length === 1 ? 'entry' : 'entries'}</div>
+  <div class="article-grid">{articles.map((article, index) => <ArticleCard article={article} index={index + 1} />)}</div>
+</section>

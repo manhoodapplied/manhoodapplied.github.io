@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TerminalTitle from '../../components/TerminalTitle.astro';
+import { CATEGORIES } from '../../data/site';
+import { getPublishedArticles } from '../../utils/content';
+const articles = await getPublishedArticles();
+---
+<BaseLayout title="Topics" description="Browse Manhood Applied articles across mind, health, work, relationships, character, and discipline." canonicalPath="/topics/">
+  <header class="page-intro"><p class="eyebrow">FIVE DURABLE PILLARS</p><TerminalTitle as="h1">Topics</TerminalTitle><p>Strong lives are built across connected domains. Start with the one that needs your attention now.</p></header>
+  <section class="section listing-section" aria-label="Topics"><div class="topic-grid topic-grid--index">{Object.entries(CATEGORIES).map(([slug, category]) => { const count = articles.filter((article) => article.data.category === slug).length; return <a href={`/topics/${slug}/`}><span>{category.number}</span><h2>{category.name}</h2><p>{category.description}</p><i>{count} {count === 1 ? 'article' : 'articles'} →</i></a>; })}</div></section>
+</BaseLayout>

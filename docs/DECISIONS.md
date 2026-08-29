@@ -1,0 +1,37 @@
+# Decision log
+
+## 2026-08-28 — Separate public repository
+
+**Decision:** Keep the public website in `manhoodapplied/manhoodapplied.github.io`, locally at `D:\dev\manhoodapplied-website`, separate from the private studio at `D:\dev\manlihood-applied`.
+
+**Why:** The boundary prevents unpublished work and production assets from entering a public repository, while giving the publication an independent deployment lifecycle.
+
+## 2026-08-28 — Static Astro architecture
+
+**Decision:** Use Astro, Markdown content collections, GitHub Actions, and GitHub Pages.
+
+**Why:** The stack is free, fast, maintainable, and suitable for text-led SEO. It has no runtime database or paid service dependency.
+
+## 2026-08-28 — Free replacement typography
+
+**Decision:** Use self-hosted League Gothic for display type and Inter for body/UI copy.
+
+**Why:** They preserve the MAPP design language under free licenses. Druk trial files remain private and are prohibited from the public repository and build.
+
+## 2026-08-28 — Text-first social discovery
+
+**Decision:** Store no carousel exports, Reel video, or per-article imagery. Use typography-only cards, exact outbound post links, and click-to-load official embeds.
+
+**Why:** This protects performance, reduces third-party tracking on initial load, avoids media-rights risk, and keeps articles useful when social posts disappear.
+
+## 2026-08-28 — Strict launch validation
+
+**Decision:** Fail the build unless content passes schema and cross-record validation, including exactly 13 published pages, seven carousel entries, and six Reel entries.
+
+**Why:** Public eligibility and launch completeness should be machine-enforced rather than dependent on memory.
+
+## 2026-08-28 — Commerce requires complete migration
+
+**Decision:** Keep shop navigation and transactions out of GitHub Pages. Migrate the full site before the first paid product.
+
+**Why:** Preserving one coherent site and URL structure is safer for visitors and SEO than bolting a transaction-focused business onto editorial Pages hosting.

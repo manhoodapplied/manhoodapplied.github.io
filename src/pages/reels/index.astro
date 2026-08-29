@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleListing from '../../components/ArticleListing.astro';
+import { getPublishedArticles } from '../../utils/content';
+const articles = (await getPublishedArticles()).filter((article) => article.data.contentType === 'reel');
+---
+<BaseLayout title="Reels" description="Read the practical essays behind every published Manhood Applied Reel and watch the original short-form posts on demand." canonicalPath="/reels/">
+  <ArticleListing eyebrow="SHORT MOTION ESSAYS" title="Reels" description="A deeper, text-led treatment of each short video, with the exact original post available only when you choose to load it." articles={articles} />
+</BaseLayout>

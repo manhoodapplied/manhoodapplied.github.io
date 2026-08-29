@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manhoodapplied.github.io/sitemap-index.xml

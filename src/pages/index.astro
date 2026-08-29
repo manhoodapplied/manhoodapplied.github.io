@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TerminalTitle from '../components/TerminalTitle.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { CATEGORIES, SITE } from '../data/site';
+import { getPublishedArticles } from '../utils/content';
+const articles = await getPublishedArticles();
+const featured = articles.filter((article) => article.data.featured).slice(0, 4);
+const carousels = articles.filter((article) => article.data.contentType === 'carousel').slice(0, 3);
+const reels = articles.filter((article) => article.data.contentType === 'reel').slice(0, 3);
+const organizationJsonLd = { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/brand/manhood-applied-emblem.png`, sameAs: Object.values(SITE.social) };
+---
+<BaseLayout jsonLd={organizationJsonLd}>
+  <section class="hero">
+    <p class="eyebrow">TRUE · USEFUL · USABLE</p>
+    <h1>Strength is not a performance.<br /><span>It is a practice.</span></h1>
+    <p class="hero__lede">Practical ideas for clearer judgment, stronger discipline, better health, useful ambition, and healthier relationships.</p>
+    <div class="hero__actions"><a class="button button--primary" href="/articles/">Start reading</a><a class="button" href="#topics">Explore topics</a></div>
+  </section>
+  <section class="signal-strip" aria-label="Editorial promise"><span>No guru theater</span><span>No shame bait</span><span>No empty motivation</span><span>One useful next step</span></section>
+  <section class="section" aria-labelledby="latest-title">
+    <div class="section-heading"><div><p class="eyebrow">LATEST ARTICLES</p><TerminalTitle as="h2" id="latest-title">Ideas worth applying</TerminalTitle></div><a href="/articles/">View all {articles.length} articles →</a></div>
+    <div class="article-grid article-grid--featured">{(featured.length ? featured : articles.slice(0, 4)).map((article, index) => <ArticleCard article={article} index={index + 1} />)}</div>
+  </section>
+  <section class="section section--raised" id="topics" aria-labelledby="topics-title">
+    <div class="section-heading"><div><p class="eyebrow">FIVE DURABLE PILLARS</p><TerminalTitle as="h2" id="topics-title">Build the whole man</TerminalTitle></div><p>Browse by the part of life you are trying to strengthen.</p></div>
+    <div class="topic-grid">{Object.entries(CATEGORIES).map(([slug, category]) => <a href={`/topics/${slug}/`}><span>{category.number}</span><h3>{category.name}</h3><p>{category.description}</p><i aria-hidden="true">→</i></a>)}</div>
+  </section>
+  <section class="section split-library" aria-label="Social content library">
+    <div><div class="section-heading section-heading--compact"><div><p class="eyebrow">SWIPEABLE LESSONS</p><TerminalTitle as="h2">Carousels</TerminalTitle></div><a href="/carousels/">All carousels →</a></div><div class="stack-list">{carousels.map((article) => <ArticleCard article={article} />)}</div></div>
+    <div><div class="section-heading section-heading--compact"><div><p class="eyebrow">SHORT MOTION ESSAYS</p><TerminalTitle as="h2">Reels</TerminalTitle></div><a href="/reels/">All Reels →</a></div><div class="stack-list">{reels.map((article) => <ArticleCard article={article} />)}</div></div>
+  </section>
+  <section class="manifesto"><p class="eyebrow">MANHOOD, APPLIED</p><TerminalTitle as="h2">Keep your heart. Raise your standards</TerminalTitle><p>Masculinity does not need another costume. It needs judgment, responsibility, courage, and the willingness to practice what you claim to value.</p><a class="button button--primary" href="/about/">What we believe</a></section>
+</BaseLayout>

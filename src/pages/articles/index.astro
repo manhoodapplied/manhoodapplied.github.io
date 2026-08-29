@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleListing from '../../components/ArticleListing.astro';
+import { getPublishedArticles } from '../../utils/content';
+const articles = await getPublishedArticles();
+---
+<BaseLayout title="Articles" description="Practical, text-led MAPP articles on judgment, health, work, relationships, character, and discipline." canonicalPath="/articles/">
+  <ArticleListing eyebrow="THE FULL LIBRARY" title="Articles" description="Thirteen practical essays built from MAPP's published carousels and Reels. No filler. One useful next step at a time." articles={articles} />
+</BaseLayout>

@@ -1,0 +1,119 @@
+---
+interface Props {
+  links: {
+    instagram?: string;
+    tiktok?: string;
+    youtube?: string;
+  };
+}
+
+const { links } = Astro.props;
+const platforms = [
+  links.instagram && { key: 'instagram', label: 'Instagram', url: links.instagram },
+  links.tiktok && { key: 'tiktok', label: 'TikTok', url: links.tiktok },
+  links.youtube && { key: 'youtube', label: 'YouTube', url: links.youtube },
+].filter(Boolean) as { key: string; label: string; url: string }[];
+---
+
+{platforms.length > 0 && (
+  <section class="social-embeds" aria-labelledby="original-post-title" data-social-embeds>
+    <div class="article-section-heading">
+      <p class="eyebrow">ORIGINAL POST</p>
+      <h2 id="original-post-title">Watch or swipe where it was published<span>.</span></h2>
+    </div>
+    <p class="privacy-note">The player stays off until you choose a platform. Loading it connects your browser to that platform under its privacy policy.</p>
+    <div class="embed-picker" role="group" aria-label="Choose a social platform">
+      {platforms.map((platform) => (
+        <button class="embed-button" type="button" data-platform={platform.key} data-url={platform.url}>
+          Load {platform.label}
+        </button>
+      ))}
+    </div>
+    <div class="embed-stage" data-embed-stage aria-live="polite">
+      <p>Select a platform above, or use the exact links below.</p>
+    </div>
+    <ul class="outbound-links" aria-label="Direct links to this post">
+      {platforms.map((platform) => <li><a href={platform.url} target="_blank" rel="noopener noreferrer">Open on {platform.label} ↗</a></li>)}
+    </ul>
+  </section>
+)}
+
+<script>
+  const loadScript = (src: string, id: string) => new Promise<void>((resolve, reject) => {
+    const existing = document.getElementById(id) as HTMLScriptElement | null;
+    if (existing) {
+      if (existing.dataset.loaded === 'true') resolve();
+      else existing.addEventListener('load', () => resolve(), { once: true });
+      return;
+    }
+    const script = document.createElement('script');
+    script.id = id;
+    script.async = true;
+    script.src = src;
+    script.addEventListener('load', () => { script.dataset.loaded = 'true'; resolve(); }, { once: true });
+    script.addEventListener('error', () => reject(new Error('Embed script did not load.')), { once: true });
+    document.head.append(script);
+  });
+
+  const youtubeId = (url: string) => {
+    const parsed = new URL(url);
+    if (parsed.hostname.includes('youtu.be')) return parsed.pathname.slice(1);
+    if (parsed.pathname.startsWith('/shorts/')) return parsed.pathname.split('/')[2];
+    return parsed.searchParams.get('v');
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-social-embeds]').forEach((root) => {
+    const stage = root.querySelector<HTMLElement>('[data-embed-stage]');
+    root.querySelectorAll<HTMLButtonElement>('[data-platform]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        if (!stage || !button.dataset.platform || !button.dataset.url) return;
+        root.querySelectorAll<HTMLButtonElement>('[data-platform]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        const platform = button.dataset.platform;
+        const url = button.dataset.url;
+        stage.replaceChildren();
+        stage.classList.add('embed-stage--loading');
+        const status = document.createElement('p');
+        status.textContent = `Loading ${button.textContent?.replace('Load ', '') ?? 'post'}…`;
+        stage.append(status);
+
+        try {
+          stage.replaceChildren();
+          if (platform === 'youtube') {
+            const id = youtubeId(url);
+            if (!id) throw new Error('The YouTube link is not a supported video URL.');
+            const frame = document.createElement('iframe');
+            frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
+            frame.title = 'Manhood Applied video on YouTube';
+            frame.loading = 'lazy';
+            frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            frame.allowFullscreen = true;
+            stage.append(frame);
+          } else if (platform === 'instagram') {
+            const quote = document.createElement('blockquote');
+            quote.className = 'instagram-media';
+            quote.dataset.instgrmPermalink = url;
+            quote.dataset.instgrmVersion = '14';
+            stage.append(quote);
+            await loadScript('https://www.instagram.com/embed.js', 'instagram-embed-script');
+            (window as Window & { instgrm?: { Embeds: { process: () => void } } }).instgrm?.Embeds.process();
+          } else if (platform === 'tiktok') {
+            const id = new URL(url).pathname.match(/\/video\/(\d+)/)?.[1];
+            if (!id) throw new Error('The TikTok link is not a supported video URL.');
+            const quote = document.createElement('blockquote');
+            quote.className = 'tiktok-embed';
+            quote.setAttribute('cite', url);
+            quote.dataset.videoId = id;
+            const section = document.createElement('section');
+            quote.append(section);
+            stage.append(quote);
+            await loadScript('https://www.tiktok.com/embed.js', 'tiktok-embed-script');
+          }
+          stage.classList.remove('embed-stage--loading');
+        } catch {
+          stage.classList.remove('embed-stage--loading');
+          stage.innerHTML = `<p>The embed could not load. <a href="${url}" target="_blank" rel="noopener noreferrer">Open the exact post directly ↗</a></p>`;
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleListing from '../../components/ArticleListing.astro';
+import { getPublishedArticles } from '../../utils/content';
+const articles = (await getPublishedArticles()).filter((article) => article.data.contentType === 'carousel');
+---
+<BaseLayout title="Carousels" description="Read the practical essays behind every published Manhood Applied carousel, with exact links to the original posts." canonicalPath="/carousels/">
+  <ArticleListing eyebrow="SWIPEABLE LESSONS" title="Carousels" description="The complete idea behind each carousel, expanded into a useful article and connected to its original social post." articles={articles} />
+</BaseLayout>

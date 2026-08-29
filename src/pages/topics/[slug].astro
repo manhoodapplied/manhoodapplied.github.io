@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleListing from '../../components/ArticleListing.astro';
+import { CATEGORIES, type CategorySlug } from '../../data/site';
+import { getPublishedArticles } from '../../utils/content';
+
+export function getStaticPaths() {
+  return Object.keys(CATEGORIES).map((slug) => ({ params: { slug }, props: { slug: slug as CategorySlug } }));
+}
+
+const { slug } = Astro.props;
+const category = CATEGORIES[slug as CategorySlug];
+const articles = (await getPublishedArticles()).filter((article) => article.data.category === slug);
+---
+<BaseLayout title={category.name} description={`${category.description} Practical articles from Manhood Applied.`} canonicalPath={`/topics/${slug}/`}>
+  <ArticleListing eyebrow={`TOPIC ${category.number}`} title={category.name} description={category.description} articles={articles} />
+</BaseLayout>

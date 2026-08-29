@@ -1,0 +1,71 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import SocialEmbeds from '../../components/SocialEmbeds.astro';
+import { CATEGORIES, SITE } from '../../data/site';
+import { articlePath, estimateReadingTime, getPublishedArticles, type Article } from '../../utils/content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles', ({ data }) => !data.draft);
+  return articles.map((article) => ({ params: { slug: article.data.slug }, props: { article } }));
+}
+
+interface Props { article: Article; }
+const { article } = Astro.props as Props;
+const { Content } = await render(article);
+const category = CATEGORIES[article.data.category];
+const reading = estimateReadingTime(article.body ?? '');
+const allArticles = await getPublishedArticles();
+const related = article.data.relatedSlugs
+  .map((slug) => allArticles.find((candidate) => candidate.data.slug === slug))
+  .filter(Boolean) as Article[];
+const canonicalPath = articlePath(article);
+const canonicalUrl = new URL(canonicalPath, SITE.url).toString();
+const publishedDate = article.data.publishedAt.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.data.title,
+    description: article.data.description,
+    datePublished: article.data.publishedAt.toISOString(),
+    dateModified: article.data.publishedAt.toISOString(),
+    mainEntityOfPage: canonicalUrl,
+    image: `${SITE.url}/brand/manhood-applied-emblem.png`,
+    author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url, logo: { '@type': 'ImageObject', url: `${SITE.url}/brand/manhood-applied-emblem.png` } },
+    articleSection: category.name,
+    wordCount: reading.wordCount,
+    sameAs: Object.values(article.data.socialLinks),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+      { '@type': 'ListItem', position: 2, name: 'Articles', item: `${SITE.url}/articles/` },
+      { '@type': 'ListItem', position: 3, name: article.data.title, item: canonicalUrl },
+    ],
+  },
+];
+---
+
+<BaseLayout title={article.data.title} description={article.data.description} canonicalPath={canonicalPath} type="article" publishedAt={article.data.publishedAt} jsonLd={jsonLd}>
+  <article class="article-page">
+    <header class="article-hero">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/articles/">Articles</a><span aria-hidden="true">/</span><span aria-current="page">{article.data.title}</span></nav>
+      <p class="eyebrow">{article.data.contentType.toUpperCase()} · {category.name.toUpperCase()}</p>
+      <h1>{article.data.title}<i aria-hidden="true">.</i></h1>
+      <p class="article-deck">{article.data.description}</p>
+      <div class="article-byline"><time datetime={article.data.publishedAt.toISOString()}>{publishedDate}</time><span>{reading.minutes} min read</span><span>{reading.wordCount} words</span></div>
+    </header>
+    <div class="article-layout">
+      <aside class="article-rail" aria-label="Article details"><span>Topic</span><a href={`/topics/${article.data.category}/`}>{category.name} →</a><span>Format</span><a href={article.data.contentType === 'carousel' ? '/carousels/' : '/reels/'}>{article.data.contentType === 'carousel' ? 'Carousel' : 'Reel'} →</a></aside>
+      <div class="article-prose"><Content /></div>
+    </div>
+    {article.data.sources.length > 0 && <section class="source-list" aria-labelledby="sources-title"><p class="eyebrow">FURTHER READING</p><h2 id="sources-title">Sources<span>.</span></h2><ol>{article.data.sources.map((source) => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a><span>{source.publication}</span></li>)}</ol></section>}
+    <SocialEmbeds links={article.data.socialLinks} />
+  </article>
+  <section class="section related-section" aria-labelledby="related-title"><div class="section-heading"><div><p class="eyebrow">KEEP GOING</p><h2 class="terminal-title" id="related-title">Related articles<span>.</span></h2></div></div><div class="article-grid">{related.map((item) => <ArticleCard article={item} />)}</div></section>
+</BaseLayout>
