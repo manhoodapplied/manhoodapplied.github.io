@@ -20,6 +20,8 @@
 
 ## 2026-08-28 — Text-first social discovery
 
+**Status:** Superseded on 2026-08-29 by independent native social galleries.
+
 **Decision:** Store no carousel exports, Reel video, or per-article imagery. Use typography-only cards, exact outbound post links, and click-to-load official embeds.
 
 **Why:** This protects performance, reduces third-party tracking on initial load, avoids media-rights risk, and keeps articles useful when social posts disappear.
@@ -41,3 +43,11 @@
 **Decision:** Publish from the free `manhoodapplied` organization with `mapp-publisher` and `pablobarriga` as owners. Deploy `manhoodapplied/manhoodapplied.github.io` through GitHub Actions.
 
 **Outcome:** `https://manhoodapplied.github.io/` is live with HTTPS enforced. All launch routes returned HTTP 200 and the production homepage scored 100 across Lighthouse Performance, Accessibility, Best Practices, and SEO.
+
+## 2026-08-29 — Independent social posts and native galleries
+
+**Decision:** Store articles and social posts in separate validated collections. Display the original native posts automatically as they approach the viewport on `/carousels/`, `/reels/`, and selected homepage discovery cards. Keep relationships optional and one-way from an article to a social-post ID.
+
+**Why:** A carousel or Reel is a complete publication object, not an attachment to a blog article. The separation allows either format to exist, change, or be published without requiring the other while preserving useful cross-links when both exist.
+
+**Implications:** Gallery pages connect to Instagram, TikTok, or YouTube when an embed approaches the visitor's screen. Article reading pages remain text-first and load a related post only after a platform selection. Media remains hosted by its original platform and is never copied into GitHub.

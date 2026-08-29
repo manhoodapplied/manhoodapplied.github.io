@@ -22,6 +22,14 @@ for (const target of required) if (!relativeFiles.has(target)) errors.push(`Miss
 const articleHtml = [...relativeFiles].filter((file) => /^articles\/[^/]+\/index\.html$/.test(file));
 if (articleHtml.length !== 13) errors.push(`Expected 13 article pages; found ${articleHtml.length}`);
 
+for (const [page, expectedPosts] of [['carousels/index.html', 7], ['reels/index.html', 6]]) {
+  const html = await readFile(join(root, page), 'utf8');
+  const cards = [...html.matchAll(/data-social-post-card/g)].length;
+  const embeds = [...html.matchAll(/<div class="native-social" data-native-social/g)].length;
+  if (cards !== expectedPosts) errors.push(`${page}: expected ${expectedPosts} independent social post cards; found ${cards}`);
+  if (embeds !== expectedPosts) errors.push(`${page}: expected ${expectedPosts} native embed stages; found ${embeds}`);
+}
+
 const forbidden = files.filter((file) => /\.(mp4|mov|webm|jpg|jpeg|gif|otf|ttf)$/i.test(file) || /druk/i.test(file));
 if (forbidden.length) errors.push(`Forbidden media/font output: ${forbidden.map((file) => relative(root, file)).join(', ')}`);
 
@@ -66,4 +74,4 @@ if (errors.length) {
   console.error(`Build verification failed with ${errors.length} error(s):\n- ${[...new Set(errors)].join('\n- ')}`);
   process.exit(1);
 }
-console.log(`Build verified: ${htmlFiles.length} HTML pages, 13 articles, metadata, JSON-LD, internal links, sitemap, RSS, and robots.`);
+console.log(`Build verified: ${htmlFiles.length} HTML pages, 13 articles, 13 independent social posts with native embeds, metadata, JSON-LD, internal links, sitemap, RSS, and robots.`);

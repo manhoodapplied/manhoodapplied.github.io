@@ -1,0 +1,59 @@
+---
+import type { Article, SocialPost } from '../utils/content';
+import { articlePath } from '../utils/content';
+import { CATEGORIES } from '../data/site';
+
+interface Props {
+  post: SocialPost;
+  relatedArticle?: Article;
+  index?: number;
+}
+
+const { post, relatedArticle, index } = Astro.props;
+const category = CATEGORIES[post.data.category];
+const platforms = [
+  post.data.socialLinks.instagram && { key: 'instagram', label: 'Instagram', url: post.data.socialLinks.instagram },
+  post.data.socialLinks.tiktok && { key: 'tiktok', label: 'TikTok', url: post.data.socialLinks.tiktok },
+  post.data.socialLinks.youtube && { key: 'youtube', label: 'YouTube', url: post.data.socialLinks.youtube },
+].filter(Boolean) as { key: string; label: string; url: string }[];
+const defaultPlatform = platforms[0];
+const publishedDate = post.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+
+<article class="social-post-card" id={post.data.id} data-social-post-card>
+  <header class="social-post-card__header">
+    <div class="social-post-card__meta">
+      <span>{index ? String(index).padStart(2, '0') : post.data.contentType.toUpperCase()}</span>
+      <span>{category.name}</span>
+    </div>
+    <h2>{post.data.title}<i aria-hidden="true">.</i></h2>
+    <p>{post.data.description}</p>
+    <time datetime={post.data.publishedAt.toISOString()}>{publishedDate}</time>
+  </header>
+
+  <div class="native-social" data-native-social data-default-platform={defaultPlatform.key} data-default-url={defaultPlatform.url}>
+    <div class="native-social__picker" role="group" aria-label={`Choose a platform for ${post.data.title}`}>
+      {platforms.map((platform, platformIndex) => (
+        <button
+          type="button"
+          data-select-platform={platform.key}
+          data-url={platform.url}
+          aria-pressed={platformIndex === 0}
+        >
+          {platform.label}
+        </button>
+      ))}
+    </div>
+    <div class="native-social__stage" data-native-stage aria-live="polite">
+      <p>Loading the post from {defaultPlatform.label}…</p>
+      <noscript><p><a href={defaultPlatform.url} target="_blank" rel="noopener noreferrer">Open the exact post on {defaultPlatform.label} ↗</a></p></noscript>
+    </div>
+  </div>
+
+  <footer class="social-post-card__footer">
+    <div class="social-post-card__links">
+      {platforms.map((platform) => <a href={platform.url} target="_blank" rel="noopener noreferrer">Open on {platform.label} ↗</a>)}
+    </div>
+    {relatedArticle && <a class="social-post-card__article-link" href={articlePath(relatedArticle)}>Read the related article →</a>}
+  </footer>
+</article>

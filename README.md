@@ -1,14 +1,14 @@
 # Manhood Applied public website
 
-The static editorial website for **Manhood Applied (MAPP)**, intended for publication at <https://manhoodapplied.github.io/>. It expands MAPP's published carousels and Reels into practical, text-led articles for search and direct reading.
+The static editorial website for **Manhood Applied (MAPP)**, published at <https://manhoodapplied.github.io/>. It presents MAPP's social posts and long-form articles as independent libraries that can optionally reference each other.
 
 The site is deliberately separate from the private MAPP content studio. The studio remains the production source of record; this repository contains only public-ready writing, the existing emblem/favicon, and exact outbound post URLs.
 
 ## What ships
 
-- 13 launch articles: seven based on published carousels and six based on published Reels.
-- Five topic archives, plus dedicated article, carousel, and Reel indexes.
-- Click-to-load Instagram, TikTok, and YouTube embeds with exact-link fallbacks.
+- 13 launch articles and 13 separately validated social-post records: seven carousels and six Reels.
+- Five topic archives, plus independent article, carousel, and Reel indexes.
+- Native Instagram, TikTok, and YouTube embeds with viewport-based lazy loading and exact-link fallbacks. Article pages retain click-to-load related-post embeds.
 - Canonical metadata, Open Graph data, Article/Organization/Breadcrumb structured data, RSS, sitemap, robots, and a custom 404.
 - Self-hosted League Gothic and Inter packages under free licenses. No Druk trial files.
 - Static deployment through GitHub Actions and GitHub Pages, with no paid services or visitor analytics.

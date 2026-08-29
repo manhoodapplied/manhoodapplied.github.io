@@ -4,13 +4,9 @@ title: "Let Her Walk Without Playing Games"
 description: "How to respond when interest is not returned, protect your time, and step away without manipulation, hostility, or self-abandonment."
 publishedAt: 2026-08-26
 sourcePostId: let-her-walk
-contentType: reel
 category: relationships
 featured: false
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/reel/Dcg9xBBSceX/"
-  youtube: "https://www.youtube.com/shorts/gwVoqY4F3SE"
 relatedSlugs: [recognize-one-sided-attraction, stop-texting-for-reassurance, loyalty-without-blindness]
 sources: []
 ---

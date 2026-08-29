@@ -18,10 +18,10 @@ const platforms = [
 {platforms.length > 0 && (
   <section class="social-embeds" aria-labelledby="original-post-title" data-social-embeds>
     <div class="article-section-heading">
-      <p class="eyebrow">ORIGINAL POST</p>
-      <h2 id="original-post-title">Watch or swipe where it was published<span>.</span></h2>
+      <p class="eyebrow">RELATED SOCIAL POST</p>
+      <h2 id="original-post-title">See the social version<span>.</span></h2>
     </div>
-    <p class="privacy-note">The player stays off until you choose a platform. Loading it connects your browser to that platform under its privacy policy.</p>
+    <p class="privacy-note">This independently published post explores the same idea in a different format. The player stays off on article pages until you choose a platform.</p>
     <div class="embed-picker" role="group" aria-label="Choose a social platform">
       {platforms.map((platform) => (
         <button class="embed-button" type="button" data-platform={platform.key} data-url={platform.url}>
@@ -62,6 +62,13 @@ const platforms = [
     return parsed.searchParams.get('v');
   };
 
+  const instagramEmbedUrl = (url: string) => {
+    const parsed = new URL(url);
+    const match = parsed.pathname.match(/\/(p|reel)\/([^/]+)/);
+    if (!match) throw new Error('The Instagram link is not a supported post URL.');
+    return `https://www.instagram.com/${match[1]}/${match[2]}/`;
+  };
+
   document.querySelectorAll<HTMLElement>('[data-social-embeds]').forEach((root) => {
     const stage = root.querySelector<HTMLElement>('[data-embed-stage]');
     root.querySelectorAll<HTMLButtonElement>('[data-platform]').forEach((button) => {
@@ -91,7 +98,7 @@ const platforms = [
           } else if (platform === 'instagram') {
             const quote = document.createElement('blockquote');
             quote.className = 'instagram-media';
-            quote.dataset.instgrmPermalink = url;
+            quote.dataset.instgrmPermalink = instagramEmbedUrl(url);
             quote.dataset.instgrmVersion = '14';
             stage.append(quote);
             await loadScript('https://www.instagram.com/embed.js', 'instagram-embed-script');

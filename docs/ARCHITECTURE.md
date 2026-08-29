@@ -9,39 +9,44 @@ The launch boundary is intentionally narrow: articles, carousel/Reel discovery, 
 ## Technology
 
 - Astro produces a fully static site.
-- Markdown content collections hold articles and validated metadata.
+- Markdown content records hold articles; JSON content records hold independent social posts and their platform URLs.
 - League Gothic and Inter are installed from Fontsource and bundled as local webfonts.
 - GitHub Actions builds the site; GitHub Pages serves the generated files.
 - `@astrojs/sitemap` and `@astrojs/rss` create discovery feeds.
 
-The browser receives normal HTML for every article. JavaScript is used only for the visitor-initiated social embed loader. An article remains useful and linkable when JavaScript is unavailable.
+The browser receives normal HTML for every article and social gallery. JavaScript loads native social posts as their cards approach the viewport. Article pages still require an explicit platform selection before loading a related embed. All records and exact outbound links remain useful when JavaScript or a third-party embed is unavailable.
 
 ## Content model
 
 Every `src/content/articles/<slug>.md` record contains:
 
 - `slug`, `title`, `description`, and `publishedAt`
-- `sourcePostId`, `contentType`, `category`, `featured`, and `draft`
-- optional exact `socialLinks.instagram`, `socialLinks.tiktok`, and `socialLinks.youtube`
+- optional `sourcePostId`, plus `category`, `featured`, and `draft`
 - two or three `relatedSlugs`
 - optional restrained `sources`
 - a 600–900 word Markdown body
 
-Astro validates the record shape. `scripts/validate-content.mjs` adds cross-record checks that schemas alone cannot enforce: unique slugs/source IDs, filename agreement, existing related articles, exact launch counts, body length, text-only content, and platform-specific post URL formats.
+Every `src/content/social-posts/<id>.json` record independently contains its title, description, publication date, format, category, status, and exact Instagram, TikTok, and YouTube post URLs. A social record does not require an article. An article may optionally identify a related social record through `sourcePostId`.
+
+Astro validates both record shapes. `scripts/validate-content.mjs` adds cross-record checks that schemas alone cannot enforce: unique slugs and IDs, filename agreement, valid optional relationships, exact launch counts, body length, text-only articles, and platform-specific post URL formats. Article records are rejected if they contain social format or platform-link fields.
 
 ## Routes and rendering
 
 - `/` is the editorial landing page.
 - `/articles/` and `/articles/<slug>/` are the complete library and individual essays.
-- `/carousels/` and `/reels/` are format-specific discovery pages.
+- `/carousels/` and `/reels/` are native social-post galleries, independent from the article library.
 - `/topics/` and `/topics/<slug>/` organize the five studio-aligned categories.
 - `/about/`, `/404.html`, `/rss.xml`, `robots.txt`, and sitemap files support trust and discovery.
 
-Draft entries are filtered from every collection query and every generated route. The build also requires exactly 13 published launch articles, seven carousels, and six Reels.
+Draft entries are filtered from both collections and every generated route. The build currently requires exactly 13 published articles and 13 published social records: seven carousels and six Reels.
 
 ## Embed behavior and privacy
 
-Article HTML contains buttons and exact outbound links, not preloaded social players. Selecting a platform creates its official embed and only then connects to that third party. YouTube uses the privacy-enhanced `youtube-nocookie.com` player. If a script is blocked or a post is removed, the exact source link remains visible. A profile link is never substituted for a missing post URL.
+Carousel and Reel gallery cards automatically request their default native embed only when they approach the viewport. Platform controls switch to another exact version when one exists. YouTube uses the privacy-enhanced `youtube-nocookie.com` player; TikTok uses its player embed; Instagram uses its official embed script.
+
+Instagram outbound links retain the exact username-prefixed MAPP URL. The loader normalizes only the embed permalink to Instagram's canonical `/p/<id>/` or `/reel/<id>/` route because the username-prefixed page route is refused inside Instagram's iframe player.
+
+Related embeds on article pages remain click-to-load, keeping reading pages text-first. If any embed is blocked or a post is removed, the exact source link remains visible. A profile link is never substituted for a missing post URL, and no post media is copied into GitHub.
 
 ## Commerce migration boundary
 

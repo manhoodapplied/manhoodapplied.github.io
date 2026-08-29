@@ -4,14 +4,9 @@ title: "Discipline Means Keeping Your Word to Yourself"
 description: "Why motivation can begin the work but small, specific promises are what build consistency and self-trust over time."
 publishedAt: 2026-08-25T23:30:00-06:00
 sourcePostId: discipline-finishes-job
-contentType: reel
 category: character-discipline
 featured: false
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/reel/Dce-2AXSKLk/"
-  tiktok: "https://www.tiktok.com/@manhoodapplied/video/7679080392145554695"
-  youtube: "https://www.youtube.com/shorts/ePM0FdS8hW4"
 relatedSlugs: [stay-disciplined-when-motivation-is-low, get-back-up-after-a-setback, morning-habits-that-protect-your-future]
 sources: []
 ---

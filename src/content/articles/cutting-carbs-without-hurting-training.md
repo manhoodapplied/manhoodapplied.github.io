@@ -4,12 +4,9 @@ title: "How to Cut Carbs Without Hurting Your Training"
 description: "Learn how to reduce carbohydrates intelligently while protecting training quality, recovery, and muscle during a calorie deficit."
 publishedAt: 2026-08-28
 sourcePostId: cut-carbs-performance
-contentType: carousel
 category: body-health
 featured: true
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/p/DcltbqjESq1/"
 relatedSlugs: [morning-habits-that-protect-your-future, change-your-state-before-believing-your-mood]
 sources:
   - title: "Nutrition and Athletic Performance"

@@ -4,14 +4,9 @@ title: "Judge an Apology by What Happens Next"
 description: "How to evaluate an apology through ownership, repair, and consistent behavior instead of relying on emotional words alone."
 publishedAt: 2026-08-25T22:00:00-06:00
 sourcePostId: loyalty-judgment-reel
-contentType: reel
 category: relationships
 featured: false
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/reel/Dce6jDky8Dr/"
-  tiktok: "https://www.tiktok.com/@manhoodapplied/video/7679078793264303367"
-  youtube: "https://www.youtube.com/shorts/L0PMIX0epNc"
 relatedSlugs: [loyalty-without-blindness, stop-texting-for-reassurance, recognize-one-sided-attraction]
 sources: []
 ---

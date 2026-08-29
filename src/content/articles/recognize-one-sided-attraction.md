@@ -4,12 +4,9 @@ title: "How to Recognize One-Sided Attraction and Stop Chasing"
 description: "Learn what mutual interest looks like, how to interpret repeated ambiguity, and when to step back without resentment or games."
 publishedAt: 2026-08-26
 sourcePostId: dont-chase-her
-contentType: carousel
 category: relationships
 featured: true
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/p/Dcg13G-Fc9b/"
 relatedSlugs: [let-her-walk-without-playing-games, stop-texting-for-reassurance, loyalty-without-blindness]
 sources: []
 ---

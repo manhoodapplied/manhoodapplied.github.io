@@ -4,12 +4,9 @@ title: "How to Take a Calculated Risk Before You Feel Certain"
 description: "A grounded way to act on meaningful goals without waiting for fear to disappear or confusing courage with reckless commitment."
 publishedAt: 2026-08-27
 sourcePostId: take-the-risk
-contentType: reel
 category: character-discipline
 featured: false
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/reel/DcjFaQRSU9q/"
 relatedSlugs: [morning-habits-that-protect-your-future, stay-disciplined-when-motivation-is-low, get-back-up-after-a-setback]
 sources: []
 ---

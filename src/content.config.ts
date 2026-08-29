@@ -20,16 +20,10 @@ const articles = defineCollection({
     title: z.string().min(10),
     description: z.string().min(70).max(170),
     publishedAt: z.coerce.date(),
-    sourcePostId: z.string().regex(/^[a-z0-9-]+$/),
-    contentType: z.enum(['carousel', 'reel']),
+    sourcePostId: z.string().regex(/^[a-z0-9-]+$/).optional(),
     category: z.enum(['mind-judgment', 'body-health', 'work-money', 'relationships', 'character-discipline']),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
-    socialLinks: z.object({
-      instagram: platformUrl('instagram').optional(),
-      tiktok: platformUrl('tiktok').optional(),
-      youtube: platformUrl('youtube').optional(),
-    }).default({}),
     relatedSlugs: z.array(z.string().regex(/^[a-z0-9-]+$/)).min(2).max(3),
     sources: z.array(z.object({
       title: z.string().min(3),
@@ -39,4 +33,23 @@ const articles = defineCollection({
   }),
 });
 
-export const collections = { articles };
+const socialPosts = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/social-posts' }),
+  schema: z.object({
+    id: z.string().regex(/^[a-z0-9-]+$/),
+    title: z.string().min(5),
+    description: z.string().min(30).max(180),
+    publishedAt: z.coerce.date(),
+    contentType: z.enum(['carousel', 'reel']),
+    category: z.enum(['mind-judgment', 'body-health', 'work-money', 'relationships', 'character-discipline']),
+    featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
+    socialLinks: z.object({
+      instagram: platformUrl('instagram').optional(),
+      tiktok: platformUrl('tiktok').optional(),
+      youtube: platformUrl('youtube').optional(),
+    }).refine((links) => Object.values(links).some(Boolean), 'At least one exact social post URL is required'),
+  }),
+});
+
+export const collections = { articles, socialPosts };

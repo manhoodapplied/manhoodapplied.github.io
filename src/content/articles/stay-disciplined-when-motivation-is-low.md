@@ -4,12 +4,9 @@ title: "How to Stay Disciplined When Motivation Is Low"
 description: "A practical system for keeping promises on low-energy days without relying on motivation, intensity, or a perfect streak."
 publishedAt: 2026-08-25
 sourcePostId: discipline-do-it-anyway
-contentType: carousel
 category: character-discipline
 featured: true
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/p/Dce-uP4EZbU/"
 relatedSlugs: [discipline-means-keeping-your-word, get-back-up-after-a-setback]
 sources: []
 ---

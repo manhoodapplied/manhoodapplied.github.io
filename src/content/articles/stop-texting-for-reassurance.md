@@ -4,12 +4,9 @@ title: "How to Stop Texting for Reassurance and Keep Your Self-Respect"
 description: "A direct framework for sending clearer messages, recognizing mutual effort, and stepping back when a conversation becomes one-sided."
 publishedAt: 2026-08-26
 sourcePostId: stop-needing-the-reply
-contentType: carousel
 category: relationships
 featured: false
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/p/DchjtOrkdr-/"
 relatedSlugs: [recognize-one-sided-attraction, let-her-walk-without-playing-games, judge-an-apology-by-what-happens-next]
 sources: []
 ---

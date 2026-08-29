@@ -4,12 +4,9 @@ title: "How to Get Back Up After a Setback"
 description: "A practical resilience sequence for stabilizing after a hit, finding the next useful step, and rebuilding confidence through action."
 publishedAt: 2026-08-26
 sourcePostId: resilience-get-back-up
-contentType: reel
 category: character-discipline
 featured: false
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/reel/DchVuudSGgX/"
 relatedSlugs: [stay-disciplined-when-motivation-is-low, change-your-state-before-believing-your-mood, take-a-calculated-risk-before-certainty]
 sources: []
 ---

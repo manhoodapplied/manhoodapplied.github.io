@@ -4,12 +4,9 @@ title: "Feeling Better Is a Practical Skill, Not Just Luck"
 description: "Five useful principles for changing your state without fake positivity, denial, or waiting for circumstances to become perfect."
 publishedAt: 2026-08-27
 sourcePostId: feeling-good-is-a-skill
-contentType: carousel
 category: mind-judgment
 featured: true
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/p/DckGwc6kaF6/"
 relatedSlugs: [change-your-state-before-believing-your-mood, get-back-up-after-a-setback, take-a-calculated-risk-before-certainty]
 sources: []
 ---

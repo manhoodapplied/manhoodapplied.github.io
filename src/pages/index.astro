@@ -2,12 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TerminalTitle from '../components/TerminalTitle.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+import SocialPostCard from '../components/SocialPostCard.astro';
+import NativeSocialEmbedLoader from '../components/NativeSocialEmbedLoader.astro';
 import { CATEGORIES, SITE } from '../data/site';
-import { getPublishedArticles } from '../utils/content';
+import { getPublishedArticles, getPublishedSocialPosts } from '../utils/content';
 const articles = await getPublishedArticles();
+const socialPosts = await getPublishedSocialPosts();
 const featured = articles.filter((article) => article.data.featured).slice(0, 4);
-const carousels = articles.filter((article) => article.data.contentType === 'carousel').slice(0, 3);
-const reels = articles.filter((article) => article.data.contentType === 'reel').slice(0, 3);
+const carousels = socialPosts.filter((post) => post.data.contentType === 'carousel').slice(0, 2);
+const reels = socialPosts.filter((post) => post.data.contentType === 'reel').slice(0, 2);
+const relatedArticle = (postId: string) => articles.find((article) => article.data.sourcePostId === postId);
 const organizationJsonLd = { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/brand/manhood-applied-emblem.png`, sameAs: Object.values(SITE.social) };
 ---
 <BaseLayout jsonLd={organizationJsonLd}>
@@ -26,9 +30,11 @@ const organizationJsonLd = { '@context': 'https://schema.org', '@type': 'Organiz
     <div class="section-heading"><div><p class="eyebrow">FIVE DURABLE PILLARS</p><TerminalTitle as="h2" id="topics-title">Build the whole man</TerminalTitle></div><p>Browse by the part of life you are trying to strengthen.</p></div>
     <div class="topic-grid">{Object.entries(CATEGORIES).map(([slug, category]) => <a href={`/topics/${slug}/`}><span>{category.number}</span><h3>{category.name}</h3><p>{category.description}</p><i aria-hidden="true">→</i></a>)}</div>
   </section>
-  <section class="section split-library" aria-label="Social content library">
-    <div><div class="section-heading section-heading--compact"><div><p class="eyebrow">SWIPEABLE LESSONS</p><TerminalTitle as="h2">Carousels</TerminalTitle></div><a href="/carousels/">All carousels →</a></div><div class="stack-list">{carousels.map((article) => <ArticleCard article={article} />)}</div></div>
-    <div><div class="section-heading section-heading--compact"><div><p class="eyebrow">SHORT MOTION ESSAYS</p><TerminalTitle as="h2">Reels</TerminalTitle></div><a href="/reels/">All Reels →</a></div><div class="stack-list">{reels.map((article) => <ArticleCard article={article} />)}</div></div>
+  <section class="section social-home" aria-label="Social content library">
+    <div class="section-heading"><div><p class="eyebrow">ORIGINAL SOCIAL POSTS</p><TerminalTitle as="h2">Watch. Swipe. Apply</TerminalTitle></div><p>Carousels and Reels are published independently from the articles. Explore the actual posts here or open the complete libraries.</p></div>
+    <div class="social-home__group"><div class="section-heading section-heading--compact"><TerminalTitle as="h2">Carousels</TerminalTitle><a href="/carousels/">All carousels →</a></div><div class="social-gallery__grid">{carousels.map((post) => <SocialPostCard post={post} relatedArticle={relatedArticle(post.data.id)} />)}</div></div>
+    <div class="social-home__group"><div class="section-heading section-heading--compact"><TerminalTitle as="h2">Reels</TerminalTitle><a href="/reels/">All Reels →</a></div><div class="social-gallery__grid">{reels.map((post) => <SocialPostCard post={post} relatedArticle={relatedArticle(post.data.id)} />)}</div></div>
   </section>
+  <NativeSocialEmbedLoader />
   <section class="manifesto"><p class="eyebrow">MANHOOD, APPLIED</p><TerminalTitle as="h2">Keep your heart. Raise your standards</TerminalTitle><p>Masculinity does not need another costume. It needs judgment, responsibility, courage, and the willingness to practice what you claim to value.</p><a class="button button--primary" href="/about/">What we believe</a></section>
 </BaseLayout>

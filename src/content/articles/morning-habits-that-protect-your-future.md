@@ -4,12 +4,9 @@ title: "Five Morning Habits That Protect Your Future"
 description: "A practical morning system for protecting attention, setting priorities, and creating useful work before other people set your agenda."
 publishedAt: 2026-08-26
 sourcePostId: wealth-before-nine
-contentType: carousel
 category: work-money
 featured: false
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/p/DchLy0FFfQd/"
 relatedSlugs: [stay-disciplined-when-motivation-is-low, discipline-means-keeping-your-word, take-a-calculated-risk-before-certainty]
 sources: []
 ---

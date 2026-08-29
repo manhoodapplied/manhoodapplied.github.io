@@ -4,12 +4,9 @@ title: "Loyalty Without Blindness: How to Keep Better Judgment"
 description: "A framework for forgiving without ignoring repeated harm, restoring trust in stages, and protecting your standards without becoming cold."
 publishedAt: 2026-08-25
 sourcePostId: loyalty-needs-judgment
-contentType: carousel
 category: mind-judgment
 featured: false
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/p/Dce57CmkTho/"
 relatedSlugs: [judge-an-apology-by-what-happens-next, recognize-one-sided-attraction, let-her-walk-without-playing-games]
 sources: []
 ---

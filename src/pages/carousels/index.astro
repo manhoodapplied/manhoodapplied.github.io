@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleListing from '../../components/ArticleListing.astro';
-import { getPublishedArticles } from '../../utils/content';
-const articles = (await getPublishedArticles()).filter((article) => article.data.contentType === 'carousel');
+import SocialPostGallery from '../../components/SocialPostGallery.astro';
+import { getPublishedArticles, getPublishedSocialPosts } from '../../utils/content';
+const articles = await getPublishedArticles();
+const posts = (await getPublishedSocialPosts()).filter((post) => post.data.contentType === 'carousel');
 ---
-<BaseLayout title="Carousels" description="Read the practical essays behind every published Manhood Applied carousel, with exact links to the original posts." canonicalPath="/carousels/">
-  <ArticleListing eyebrow="SWIPEABLE LESSONS" title="Carousels" description="The complete idea behind each carousel, expanded into a useful article and connected to its original social post." articles={articles} />
+<BaseLayout title="Carousels" description="Browse every published Manhood Applied carousel as a native social post, with optional links to related long-form articles." canonicalPath="/carousels/">
+  <SocialPostGallery eyebrow="SWIPEABLE LESSONS" title="Carousels" description="Browse the original swipeable posts here. Each carousel stands on its own; when a deeper article exists, it is linked separately." posts={posts} articles={articles} />
 </BaseLayout>

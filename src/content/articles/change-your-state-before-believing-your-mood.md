@@ -4,12 +4,9 @@ title: "Change Your State Before You Believe Every Thought"
 description: "Ten immediate actions that can interrupt a low state without pretending the problem is solved or forcing artificial positivity."
 publishedAt: 2026-08-27
 sourcePostId: feel-awesome-caption
-contentType: reel
 category: mind-judgment
 featured: true
 draft: false
-socialLinks:
-  instagram: "https://www.instagram.com/manhoodapplied/reel/DclrI8Py1sn/"
 relatedSlugs: [feeling-better-is-a-practical-skill, get-back-up-after-a-setback, discipline-means-keeping-your-word]
 sources: []
 ---

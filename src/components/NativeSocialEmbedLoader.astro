@@ -1,0 +1,134 @@
+<script>
+  const embedScript = (src: string, id: string) => new Promise<void>((resolve, reject) => {
+    const existing = document.getElementById(id) as HTMLScriptElement | null;
+    if (existing) {
+      if (existing.dataset.loaded === 'true') resolve();
+      else {
+        existing.addEventListener('load', () => resolve(), { once: true });
+        existing.addEventListener('error', () => reject(new Error('Embed script did not load.')), { once: true });
+      }
+      return;
+    }
+    const script = document.createElement('script');
+    script.id = id;
+    script.async = true;
+    script.src = src;
+    script.addEventListener('load', () => { script.dataset.loaded = 'true'; resolve(); }, { once: true });
+    script.addEventListener('error', () => reject(new Error('Embed script did not load.')), { once: true });
+    document.head.append(script);
+  });
+
+  const videoId = (url: string) => {
+    const parsed = new URL(url);
+    if (parsed.hostname.includes('youtu.be')) return parsed.pathname.slice(1);
+    if (parsed.pathname.startsWith('/shorts/')) return parsed.pathname.split('/')[2];
+    return parsed.searchParams.get('v');
+  };
+
+  const instagramEmbedUrl = (url: string) => {
+    const parsed = new URL(url);
+    const match = parsed.pathname.match(/\/(p|reel)\/([^/]+)/);
+    if (!match) throw new Error('Unsupported Instagram URL.');
+    return `https://www.instagram.com/${match[1]}/${match[2]}/`;
+  };
+
+  const showFallback = (stage: HTMLElement, url: string, label: string) => {
+    stage.replaceChildren();
+    const message = document.createElement('p');
+    message.append('The native post could not load. ');
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = `Open it on ${label} ↗`;
+    message.append(link);
+    stage.append(message);
+  };
+
+  const renderPost = async (root: HTMLElement, platform: string, url: string) => {
+    const stage = root.querySelector<HTMLElement>('[data-native-stage]');
+    if (!stage) return;
+    const label = platform.charAt(0).toUpperCase() + platform.slice(1);
+    stage.replaceChildren();
+    stage.classList.add('native-social__stage--loading');
+    const loading = document.createElement('p');
+    loading.textContent = `Loading the post from ${label}…`;
+    stage.append(loading);
+
+    try {
+      if (platform === 'youtube') {
+        const id = videoId(url);
+        if (!id) throw new Error('Unsupported YouTube URL.');
+        const frame = document.createElement('iframe');
+        frame.className = 'native-social__frame native-social__frame--video';
+        frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
+        frame.title = 'Manhood Applied video on YouTube';
+        frame.loading = 'lazy';
+        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        frame.allowFullscreen = true;
+        stage.replaceChildren(frame);
+      } else if (platform === 'tiktok') {
+        const id = new URL(url).pathname.match(/\/video\/(\d+)/)?.[1];
+        if (!id) throw new Error('Unsupported TikTok URL.');
+        const frame = document.createElement('iframe');
+        frame.className = 'native-social__frame native-social__frame--video';
+        frame.src = `https://www.tiktok.com/player/v1/${encodeURIComponent(id)}?autoplay=0&loop=0`;
+        frame.title = 'Manhood Applied video on TikTok';
+        frame.loading = 'lazy';
+        frame.allow = 'fullscreen';
+        frame.allowFullscreen = true;
+        stage.replaceChildren(frame);
+      } else if (platform === 'instagram') {
+        const quote = document.createElement('blockquote');
+        quote.className = 'instagram-media';
+        quote.dataset.instgrmPermalink = instagramEmbedUrl(url);
+        quote.dataset.instgrmVersion = '14';
+        const fallback = document.createElement('a');
+        fallback.href = url;
+        fallback.target = '_blank';
+        fallback.rel = 'noopener noreferrer';
+        fallback.textContent = 'View this post on Instagram';
+        quote.append(fallback);
+        stage.replaceChildren(quote);
+        await embedScript('https://www.instagram.com/embed.js', 'instagram-native-embed-script');
+        (window as Window & { instgrm?: { Embeds: { process: () => void } } }).instgrm?.Embeds.process();
+      } else {
+        throw new Error('Unsupported platform.');
+      }
+      stage.classList.remove('native-social__stage--loading');
+    } catch {
+      stage.classList.remove('native-social__stage--loading');
+      showFallback(stage, url, label);
+    }
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-native-social]').forEach((root) => {
+    let loaded = false;
+    const loadDefault = () => {
+      if (loaded || !root.dataset.defaultPlatform || !root.dataset.defaultUrl) return;
+      loaded = true;
+      void renderPost(root, root.dataset.defaultPlatform, root.dataset.defaultUrl);
+    };
+
+    root.querySelectorAll<HTMLButtonElement>('[data-select-platform]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!button.dataset.selectPlatform || !button.dataset.url) return;
+        loaded = true;
+        root.querySelectorAll<HTMLButtonElement>('[data-select-platform]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        void renderPost(root, button.dataset.selectPlatform, button.dataset.url);
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          loadDefault();
+        }
+      }, { rootMargin: '500px 0px' });
+      observer.observe(root);
+    } else {
+      loadDefault();
+    }
+  });
+</script>

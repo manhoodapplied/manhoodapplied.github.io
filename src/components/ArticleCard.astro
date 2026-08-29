@@ -8,7 +8,7 @@ const category = CATEGORIES[article.data.category];
 ---
 <article class="article-card">
   <a href={articlePath(article)}>
-    <div class="article-card__meta"><span>{index ? String(index).padStart(2, '0') : article.data.contentType.toUpperCase()}</span><span>{category.name}</span></div>
+    <div class="article-card__meta"><span>{index ? String(index).padStart(2, '0') : 'ARTICLE'}</span><span>{category.name}</span></div>
     <h3>{article.data.title}<i aria-hidden="true">.</i></h3>
     <p>{article.data.description}</p>
     <div class="article-card__footer"><time datetime={article.data.publishedAt.toISOString()}>{article.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time><span>Read article →</span></div>
