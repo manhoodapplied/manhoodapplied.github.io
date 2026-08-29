@@ -65,6 +65,7 @@
         frame.src = `${instagramEmbedUrl(url)}embed/`;
         frame.title = 'Manhood Applied post on Instagram';
         frame.loading = 'lazy';
+        frame.setAttribute('scrolling', 'no');
         frame.allowFullscreen = true;
         stage.replaceChildren(frame);
       } else {

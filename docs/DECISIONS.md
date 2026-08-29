@@ -63,3 +63,15 @@
 **Decision:** Remove the oversized generic hero blocks from Articles, Carousels, Reels, Topics, topic listings, and About. Preserve one semantic page heading for accessibility and document structure, but let the active primary-navigation item provide the visible route cue. Keep meaningful editorial and article headlines visible.
 
 **Why:** Repeating a route name at display scale consumed the first viewport without helping the visitor. The public libraries should lead with their articles or native posts, while a persistent active-navigation treatment communicates location more efficiently. All width-constrained page sections now share an explicit centered-container rule.
+
+## 2026-08-29 — Render complete Instagram cards without nested scrolling
+
+**Decision:** Size Instagram frames from the embed document's measured responsive geometry instead of using one fixed height. The frame height follows its available width with a small safety buffer, while the iframe's own scrolling is disabled. Apply the same rule to gallery and article-page embeds.
+
+**Why:** Instagram's native card is approximately `1.25 × width + 190px` at the widths used by MAPP. The previous fixed `760px` height clipped both carousel and Reel cards and exposed an internal scrollbar. A responsive full-document frame keeps the complete post visible and leaves the website as the only scrolling surface.
+
+## 2026-08-29 — Reconcile the public gallery with Instagram's 14 live posts
+
+**Decision:** Add published Reel `R007`, **Your Life Can't Be Just This**, from its verified exact Instagram URL. Keep carousel `008`, **Cut Carbs Without Losing Performance**, as the newest carousel because Instagram confirms it is already the latest live carousel and already exists in the public collection.
+
+**Why:** The Instagram profile contains seven carousels and seven Reels. The public site already contained all seven carousels but only six Reels, so adding `R007` restores parity without duplicating the latest carousel.

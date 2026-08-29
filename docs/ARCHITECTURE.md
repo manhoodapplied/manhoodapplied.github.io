@@ -38,13 +38,13 @@ Astro validates both record shapes. `scripts/validate-content.mjs` adds cross-re
 - `/topics/` and `/topics/<slug>/` organize the five studio-aligned categories.
 - `/about/`, `/404.html`, `/rss.xml`, `robots.txt`, and sitemap files support trust and discovery.
 
-Draft entries are filtered from both collections and every generated route. The build currently requires exactly 13 published articles and 13 published social records: seven carousels and six Reels.
+Draft entries are filtered from both collections and every generated route. The build currently requires exactly 13 published articles and 14 published social records: seven carousels and seven Reels.
 
 ## Embed behavior and privacy
 
 Carousel and Reel gallery cards automatically request their default native embed only when they approach the viewport. Platform controls switch to another exact version when one exists. YouTube uses the privacy-enhanced `youtube-nocookie.com` player; TikTok and Instagram use their native player frames.
 
-Instagram outbound links retain the exact username-prefixed MAPP URL. The loader normalizes only the embed permalink to Instagram's canonical `/p/<id>/` or `/reel/<id>/` route because the username-prefixed page route is refused inside Instagram's iframe player.
+Instagram outbound links retain the exact username-prefixed MAPP URL. The loader normalizes only the embed permalink to Instagram's canonical `/p/<id>/` or `/reel/<id>/` route because the username-prefixed page route is refused inside Instagram's iframe player. Instagram frames use a measured responsive document height and disable nested scrolling so the complete native card remains visible at once.
 
 Related embeds on article pages remain click-to-load, keeping reading pages text-first. If any embed is blocked or a post is removed, the exact source link remains visible. A profile link is never substituted for a missing post URL, and no post media is copied into GitHub.
 
