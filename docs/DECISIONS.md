@@ -51,3 +51,9 @@
 **Why:** A carousel or Reel is a complete publication object, not an attachment to a blog article. The separation allows either format to exist, change, or be published without requiring the other while preserving useful cross-links when both exist.
 
 **Implications:** Gallery pages connect to Instagram, TikTok, or YouTube when an embed approaches the visitor's screen. Article reading pages remain text-first and load a related post only after a platform selection. Media remains hosted by its original platform and is never copied into GitHub.
+
+## 2026-08-29 — Make the native post the gallery's visual priority
+
+**Decision:** Use perfectly aligned two-column rows on desktop, with one shared header height for every social card in a row. Reduce heading scale, quiet the platform selector, and remove the outer grid border plus card-section dividers.
+
+**Why:** The original large headings, red platform control and dense line grid competed with the media. Stable header geometry keeps embedded posts aligned even when titles wrap differently, while whitespace establishes separation without turning every card into a nested box.
