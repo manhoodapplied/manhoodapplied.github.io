@@ -20,7 +20,7 @@ const required = ['index.html', 'articles/index.html', 'carousels/index.html', '
 for (const target of required) if (!relativeFiles.has(target)) errors.push(`Missing required output: ${target}`);
 
 const articleHtml = [...relativeFiles].filter((file) => /^articles\/[^/]+\/index\.html$/.test(file));
-if (articleHtml.length !== 13) errors.push(`Expected 13 article pages; found ${articleHtml.length}`);
+if (articleHtml.length !== 17) errors.push(`Expected 17 article pages; found ${articleHtml.length}`);
 
 for (const [page, expectedPosts] of [['carousels/index.html', 7], ['reels/index.html', 7]]) {
   const html = await readFile(join(root, page), 'utf8');
@@ -34,6 +34,8 @@ const forbidden = files.filter((file) => /\.(mp4|mov|webm|jpg|jpeg|gif|otf|ttf)$
 if (forbidden.length) errors.push(`Forbidden media/font output: ${forbidden.map((file) => relative(root, file)).join(', ')}`);
 
 const htmlFiles = files.filter((file) => extname(file) === '.html');
+let articlePagesWithSocialEmbeds = 0;
+let standaloneArticlePages = 0;
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
   const label = relative(root, file).replace(/\\/g, '/');
@@ -48,8 +50,13 @@ for (const file of htmlFiles) {
   if (/^articles\/[^/]+\/index\.html$/.test(label)) {
     if (!html.includes('"@type":"Article"')) errors.push(`${label}: missing Article structured data`);
     if (!html.includes('"@type":"BreadcrumbList"')) errors.push(`${label}: missing breadcrumb structured data`);
-    if (!html.includes('data-social-embeds') || !html.includes('class="outbound-links"')) errors.push(`${label}: missing embed controls or exact-link fallback`);
-    if (!/<button[^>]+data-platform="[^"]+"[^>]+data-url="https:\/\/[^"]+"/.test(html)) errors.push(`${label}: missing click-to-load platform button`);
+    if (html.includes('data-social-embeds')) {
+      articlePagesWithSocialEmbeds += 1;
+      if (!html.includes('class="outbound-links"')) errors.push(`${label}: missing exact-link fallback`);
+      if (!/<button[^>]+data-platform="[^"]+"[^>]+data-url="https:\/\/[^"]+"/.test(html)) errors.push(`${label}: missing click-to-load platform button`);
+    } else {
+      standaloneArticlePages += 1;
+    }
   }
   for (const image of html.matchAll(/<img\b[^>]*>/g)) if (!/\balt="[^"]*"/.test(image[0])) errors.push(`${label}: image missing alt attribute`);
   for (const frame of html.matchAll(/<iframe\b[^>]*>/g)) if (!/\btitle="[^"]+"/.test(frame[0])) errors.push(`${label}: iframe missing title`);
@@ -66,6 +73,9 @@ for (const file of htmlFiles) {
   }
 }
 
+if (articlePagesWithSocialEmbeds !== 13) errors.push(`Expected 13 post-related article pages with embed controls; found ${articlePagesWithSocialEmbeds}`);
+if (standaloneArticlePages !== 4) errors.push(`Expected 4 standalone text-only article pages; found ${standaloneArticlePages}`);
+
 const css = (await Promise.all(files.filter((file) => extname(file) === '.css').map((file) => readFile(file, 'utf8')))).join('\n');
 if (!css.includes(':focus-visible')) errors.push('Stylesheet: missing visible keyboard focus rule');
 if (!css.includes('prefers-reduced-motion')) errors.push('Stylesheet: missing reduced-motion behavior');
@@ -74,4 +84,4 @@ if (errors.length) {
   console.error(`Build verification failed with ${errors.length} error(s):\n- ${[...new Set(errors)].join('\n- ')}`);
   process.exit(1);
 }
-console.log(`Build verified: ${htmlFiles.length} HTML pages, 13 articles, 14 independent social posts with native embeds, metadata, JSON-LD, internal links, sitemap, RSS, and robots.`);
+console.log(`Build verified: ${htmlFiles.length} HTML pages, 17 articles (13 post-related, 4 standalone), 14 independent social posts with native embeds, metadata, JSON-LD, internal links, sitemap, RSS, and robots.`);

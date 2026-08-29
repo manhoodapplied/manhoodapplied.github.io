@@ -38,7 +38,7 @@ Astro validates both record shapes. `scripts/validate-content.mjs` adds cross-re
 - `/topics/` and `/topics/<slug>/` organize the five studio-aligned categories.
 - `/about/`, `/404.html`, `/rss.xml`, `robots.txt`, and sitemap files support trust and discovery.
 
-Draft entries are filtered from both collections and every generated route. The build currently requires exactly 13 published articles and 14 published social records: seven carousels and seven Reels.
+Draft entries are filtered from both collections and every generated route. The build currently requires exactly 17 published articles and 14 published social records: seven carousels and seven Reels.
 
 ## Embed behavior and privacy
 

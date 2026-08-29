@@ -28,9 +28,11 @@
 
 ## 2026-08-28 — Strict launch validation
 
-**Decision:** Fail the build unless content passes schema and cross-record validation, including exactly 13 published pages, seven carousel entries, and six Reel entries.
+**Decision:** Fail the build unless content passes schema and cross-record validation, including the documented publication counts for articles, carousels, and Reels.
 
 **Why:** Public eligibility and launch completeness should be machine-enforced rather than dependent on memory.
+
+**Count evolution:** The launch baseline was 13 articles, seven carousels, and six Reels. The current verified baseline is 17 articles, seven carousels, and seven Reels.
 
 ## 2026-08-28 — Commerce requires complete migration
 
@@ -77,3 +79,17 @@
 **Decision:** Add published Reel `R007`, **Your Life Can't Be Just This**, from its verified exact Instagram URL. Keep carousel `008`, **Cut Carbs Without Losing Performance**, as the newest carousel because Instagram confirms it is already the latest live carousel and already exists in the public collection.
 
 **Why:** The Instagram profile contains seven carousels and seven Reels. The public site already contained all seven carousels but only six Reels, so adding `R007` restores parity without duplicating the latest carousel.
+
+## 2026-08-29 — Publish four standalone search-led articles
+
+**Decision:** Add four independent text-only articles about difficult conversations, asking for a raise, task procrastination, and handling criticism. They do not claim a relationship to any carousel or Reel and therefore contain no social embed controls.
+
+**Why:** MAPP's article library should be able to answer useful search questions beyond the subjects already published on social media. Keeping the relationship optional preserves the independent article/social architecture and avoids manufacturing a false source-post association.
+
+**Validation:** The public baseline is now 17 articles: 13 post-related pages with exact-link embed fallbacks and four standalone pages. Build verification enforces both counts separately so removing an embed from a post-related article or accidentally attaching one to this launch batch fails review.
+
+## 2026-08-29 — Use permanent Search Console meta verification
+
+**Decision:** Place the Google Search Console verification token in the shared HTML head, retain the canonical URL-prefix property, and submit the generated sitemap index after deployment.
+
+**Why:** A shared meta tag survives normal content releases and verifies every generated page without adding a repository-only HTML file. The sitemap provides whole-site discovery; URL Inspection requests are reserved for the homepage and highest-priority new articles.

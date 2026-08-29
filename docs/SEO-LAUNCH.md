@@ -11,7 +11,7 @@
 
 ## Technical smoke test
 
-- [x] Homepage, all 13 articles, format archives, five topic archives, About, and 404 load.
+- [x] Homepage, all 17 articles, format archives, five topic archives, About, and 404 load.
 - [x] Emblem, favicon, bundled fonts, `rss.xml`, `robots.txt`, and `sitemap-index.xml` return successfully.
 - [x] Keyboard navigation and visible focus styles pass automated accessibility checks.
 - [x] Layout remains readable on phone, tablet, and desktop widths.
@@ -23,13 +23,13 @@ Launch verification: GitHub Pages status `built`, HTTPS enforced, all public lau
 
 ## Google Search Console
 
-1. Open Google Search Console while signed into the MAPP owner account.
-2. Add the URL-prefix property `https://manhoodapplied.github.io/`.
-3. Complete the available ownership verification method. GitHub Pages cannot add DNS records, so use a supported URL-prefix method.
-4. Submit `https://manhoodapplied.github.io/sitemap-index.xml` once.
-5. Request indexing for the homepage and the launch-priority articles after the live pages have been checked.
+- [x] Add the URL-prefix property `https://manhoodapplied.github.io/`.
+- [x] Add Google's permanent HTML meta verification token to the shared page head.
+- [ ] Verify ownership after the verification tag is live in production.
+- [ ] Submit `https://manhoodapplied.github.io/sitemap-index.xml`.
+- [ ] Request indexing for the homepage and the four newest standalone articles.
 
-Search Console access changes external account state and therefore remains an owner action.
+The sitemap is the whole-site discovery mechanism. Manual URL inspection requests prioritize selected pages but do not guarantee or accelerate inclusion; Google controls crawl and indexing timing.
 
 ## Social profiles
 
