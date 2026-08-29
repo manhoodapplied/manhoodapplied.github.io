@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TerminalTitle from '../components/TerminalTitle.astro';
 import { SITE } from '../data/site';
 const organizationJsonLd = { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/brand/manhood-applied-emblem.png`, sameAs: Object.values(SITE.social) };
 ---
 <BaseLayout title="About" description="Manhood Applied publishes practical ideas for men who want to think clearly, act responsibly, and build stronger lives." canonicalPath="/about/" jsonLd={organizationJsonLd}>
-  <header class="page-intro"><p class="eyebrow">WHAT WE BELIEVE</p><TerminalTitle as="h1">Manhood, applied</TerminalTitle><p>Masculinity is not a costume, a performance, or an excuse. It is the ongoing work of bringing judgment, responsibility, courage, and care into ordinary life.</p></header>
   <section class="about-grid section">
-    <div><p class="eyebrow">THE PURPOSE</p><h2>Useful before impressive<span>.</span></h2></div>
+    <div><p class="eyebrow">THE PURPOSE</p><h1>Useful before impressive<span>.</span></h1></div>
     <div class="article-prose"><p>MAPP exists to turn durable ideas into choices a man can use today. We write about judgment, health, work, money, relationships, character, and discipline without guru theater or shame bait.</p><p>Articles, carousels, and Reels are independent publications. Each format must stand on its own, and related versions are cross-linked only when that helps the reader go deeper.</p><h3>Our editorial standard</h3><p>We aim to be clear about what is advice, what is evidence, and what is simply a useful frame. Health, psychology, and financial claims receive restrained sourcing. Nothing here replaces professional medical, legal, or financial guidance.</p><h3>Third-party media</h3><p>This site collects no visitor data and runs no analytics. Native social posts load from their original platforms as gallery cards approach the screen; related posts on article pages remain click-to-load. Exact outbound links are always available.</p><h3>Built to stay useful</h3><p>The public site is an editorial publication. It has no shop, checkout, account system, newsletter tracking, or hidden paywall. If MAPP later sells products, the complete site will move to commerce-capable hosting before transactions begin.</p></div>
   </section>
 </BaseLayout>

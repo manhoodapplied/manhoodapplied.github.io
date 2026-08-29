@@ -13,5 +13,5 @@ const category = CATEGORIES[slug as CategorySlug];
 const articles = (await getPublishedArticles()).filter((article) => article.data.category === slug);
 ---
 <BaseLayout title={category.name} description={`${category.description} Practical articles from Manhood Applied.`} canonicalPath={`/topics/${slug}/`}>
-  <ArticleListing eyebrow={`TOPIC ${category.number}`} title={category.name} description={category.description} articles={articles} />
+  <ArticleListing title={category.name} articles={articles} />
 </BaseLayout>

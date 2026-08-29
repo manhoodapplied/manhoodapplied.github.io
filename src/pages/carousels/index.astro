@@ -6,5 +6,5 @@ const articles = await getPublishedArticles();
 const posts = (await getPublishedSocialPosts()).filter((post) => post.data.contentType === 'carousel');
 ---
 <BaseLayout title="Carousels" description="Browse every published Manhood Applied carousel as a native social post, with optional links to related long-form articles." canonicalPath="/carousels/">
-  <SocialPostGallery eyebrow="SWIPEABLE LESSONS" title="Carousels" description="Browse the original swipeable posts here. Each carousel stands on its own; when a deeper article exists, it is linked separately." posts={posts} articles={articles} />
+  <SocialPostGallery title="Carousels" posts={posts} articles={articles} />
 </BaseLayout>

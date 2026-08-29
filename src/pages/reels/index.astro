@@ -6,5 +6,5 @@ const articles = await getPublishedArticles();
 const posts = (await getPublishedSocialPosts()).filter((post) => post.data.contentType === 'reel');
 ---
 <BaseLayout title="Reels" description="Watch every published Manhood Applied Reel as a native social post, with optional links to related long-form articles." canonicalPath="/reels/">
-  <SocialPostGallery eyebrow="SHORT MOTION ESSAYS" title="Reels" description="Watch the original short-form posts here. Each Reel stands on its own; when a deeper article exists, it is linked separately." posts={posts} articles={articles} />
+  <SocialPostGallery title="Reels" posts={posts} articles={articles} />
 </BaseLayout>

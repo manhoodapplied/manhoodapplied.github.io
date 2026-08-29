@@ -57,3 +57,9 @@
 **Decision:** Use perfectly aligned two-column rows on desktop, with one shared header height for every social card in a row. Reduce heading scale, quiet the platform selector, and remove the outer grid border plus card-section dividers.
 
 **Why:** The original large headings, red platform control and dense line grid competed with the media. Stable header geometry keeps embedded posts aligned even when titles wrap differently, while whitespace establishes separation without turning every card into a nested box.
+
+## 2026-08-29 — Use navigation, not generic page heroes, for route orientation
+
+**Decision:** Remove the oversized generic hero blocks from Articles, Carousels, Reels, Topics, topic listings, and About. Preserve one semantic page heading for accessibility and document structure, but let the active primary-navigation item provide the visible route cue. Keep meaningful editorial and article headlines visible.
+
+**Why:** Repeating a route name at display scale consumed the first viewport without helping the visitor. The public libraries should lead with their articles or native posts, while a persistent active-navigation treatment communicates location more efficiently. All width-constrained page sections now share an explicit centered-container rule.

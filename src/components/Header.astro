@@ -1,5 +1,14 @@
 ---
 import { SITE } from '../data/site';
+
+const pathname = Astro.url.pathname;
+const links = [
+  { href: '/articles/', label: 'Articles' },
+  { href: '/carousels/', label: 'Carousels' },
+  { href: '/reels/', label: 'Reels' },
+  { href: '/topics/', label: 'Topics' },
+  { href: '/about/', label: 'About' },
+];
 ---
 <header class="site-header">
   <a class="brand" href="/" aria-label={`${SITE.name} home`}>
@@ -7,6 +16,9 @@ import { SITE } from '../data/site';
     <span>{SITE.name}</span>
   </a>
   <nav aria-label="Primary navigation">
-    <a href="/articles/">Articles</a><a href="/carousels/">Carousels</a><a href="/reels/">Reels</a><a href="/topics/">Topics</a><a href="/about/">About</a>
+    {links.map(({ href, label }) => {
+      const isActive = pathname === href || pathname.startsWith(href);
+      return <a href={href} aria-current={isActive ? 'page' : undefined}>{label}</a>;
+    })}
   </nav>
 </header>

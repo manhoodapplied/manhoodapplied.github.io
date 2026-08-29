@@ -4,23 +4,17 @@ import NativeSocialEmbedLoader from './NativeSocialEmbedLoader.astro';
 import type { Article, SocialPost } from '../utils/content';
 
 interface Props {
-  eyebrow: string;
   title: string;
-  description: string;
   posts: SocialPost[];
   articles: Article[];
 }
 
-const { eyebrow, title, description, posts, articles } = Astro.props;
+const { title, posts, articles } = Astro.props;
 const articleByPost = new Map(articles.filter((article) => article.data.sourcePostId).map((article) => [article.data.sourcePostId, article]));
 ---
 
-<header class="page-intro">
-  <p class="eyebrow">{eyebrow}</p>
-  <h1 class="terminal-title">{title}<span>.</span></h1>
-  <p>{description}</p>
-</header>
-<section class="section social-gallery" aria-label={title}>
+<h1 class="visually-hidden" id="social-gallery-title">{title}</h1>
+<section class="section social-gallery" aria-labelledby="social-gallery-title">
   <div class="listing-count"><span>{posts.length}</span> published {posts.length === 1 ? 'post' : 'posts'}</div>
   <p class="social-gallery__privacy">Posts load automatically as they approach the screen. Their media remains hosted by the original platform, and exact outbound links remain available if an embed is blocked or removed.</p>
   <div class="social-gallery__grid">
