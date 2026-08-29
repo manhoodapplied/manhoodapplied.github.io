@@ -96,13 +96,13 @@ const platforms = [
             frame.allowFullscreen = true;
             stage.append(frame);
           } else if (platform === 'instagram') {
-            const quote = document.createElement('blockquote');
-            quote.className = 'instagram-media';
-            quote.dataset.instgrmPermalink = instagramEmbedUrl(url);
-            quote.dataset.instgrmVersion = '14';
-            stage.append(quote);
-            await loadScript('https://www.instagram.com/embed.js', 'instagram-embed-script');
-            (window as Window & { instgrm?: { Embeds: { process: () => void } } }).instgrm?.Embeds.process();
+            const frame = document.createElement('iframe');
+            frame.className = 'instagram-media';
+            frame.src = `${instagramEmbedUrl(url)}embed/`;
+            frame.title = 'Manhood Applied post on Instagram';
+            frame.loading = 'lazy';
+            frame.allowFullscreen = true;
+            stage.append(frame);
           } else if (platform === 'tiktok') {
             const id = new URL(url).pathname.match(/\/video\/(\d+)/)?.[1];
             if (!id) throw new Error('The TikTok link is not a supported video URL.');
