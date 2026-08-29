@@ -87,7 +87,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .native-social__picker button { min-height: 32px; padding: 0 10px; border: 1px solid #292927; border-radius: 2px; background: transparent; color: #777773; cursor: pointer; font: 700 .59rem/1 var(--body); letter-spacing: .08em; text-transform: uppercase; transition: border-color .2s ease, color .2s ease, background .2s ease; }
 .native-social__picker button:hover { border-color: #464642; color: var(--muted); }
 .native-social__picker button[aria-pressed="true"] { border-color: #3a3a37; background: #111110; color: #a9a9a4; }
-.native-social__stage { min-height: 560px; container-type: inline-size; display: grid; place-items: center; overflow: hidden; background: #0e0e0d; color: var(--muted); text-align: center; }
+.native-social__stage { min-height: 560px; container-type: inline-size; display: grid; place-items: center; overflow: hidden; background: transparent; color: var(--muted); text-align: center; }
 .native-social__stage > p { padding: 28px; }
 .native-social__stage iframe { width: min(100%, 540px); border: 0; }
 .native-social__frame--video { aspect-ratio: 9 / 16; max-height: 780px; }
@@ -150,7 +150,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .embed-picker { display: flex; flex-wrap: wrap; gap: 10px; }
 .embed-button { min-height: 46px; padding: 0 18px; border: 1px solid #464642; background: transparent; color: var(--paper); cursor: pointer; font: 750 .7rem/1 var(--body); letter-spacing: .08em; text-transform: uppercase; }
 .embed-button[aria-pressed="true"] { border-color: var(--signal); background: var(--signal); }
-.embed-stage { min-height: 140px; margin-top: 22px; padding: 28px; container-type: inline-size; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line); background: var(--raised); color: var(--muted); text-align: center; }
+.embed-stage { min-height: 140px; margin-top: 22px; container-type: inline-size; display: grid; place-items: center; overflow: hidden; background: transparent; color: var(--muted); text-align: center; }
 .embed-stage iframe { width: min(100%, 640px); aspect-ratio: 9 / 16; max-height: 760px; border: 0; }
 .embed-stage iframe.instagram-media { width: 100% !important; min-width: 0 !important; max-width: 600px !important; height: min(calc(125cqi + 200px), 950px) !important; aspect-ratio: auto; max-height: none !important; overflow: hidden; }
 .embed-stage .instagram-media, .embed-stage .tiktok-embed { width: min(100%, 600px) !important; margin: 0 auto !important; }
@@ -203,7 +203,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .article-rail { grid-template-columns: 1fr; }
   .article-rail a { margin-bottom: 14px; }
   .source-list li { grid-template-columns: 1fr; }
-  .embed-stage { padding: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
