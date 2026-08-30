@@ -11,6 +11,8 @@
 7. Cite authoritative sources where a health, psychology, or financial claim needs support.
 8. Run `npm run build` and `npm run verify` before committing.
 
+Typography is a hard build gate: every small eyebrow or setup label uses Inter Semibold (`600`) with restrained tracking. League Gothic and other condensed display faces are reserved for large primary headlines; small gray display text is prohibited across all routes.
+
 Minimal frontmatter:
 
 ```yaml

@@ -28,7 +28,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .site-header nav a:hover, .site-footer nav a:hover, .section-heading > a:hover { color: var(--paper); }
 .site-header nav a[aria-current="page"] { color: var(--paper); text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 2px; text-underline-offset: 8px; }
 .hero { width: var(--wrap); margin-inline: auto; padding: clamp(78px, 10vw, 150px) 0 clamp(70px, 9vw, 132px); }
-.eyebrow { margin: 0 0 22px; color: #c7c7c2; font-size: .7rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+.eyebrow { margin: 0 0 22px; color: #c7c7c2; font-family: var(--body); font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
 .eyebrow::before { content: '/'; margin-right: .65em; color: var(--signal); }
 .hero h1, .terminal-title, .article-card h3, .manifesto h2 { margin: 0; font-family: var(--display); font-weight: 400; line-height: .88; letter-spacing: .006em; text-transform: uppercase; }
 .hero h1 { max-width: 1060px; font-size: clamp(4.8rem, 12.5vw, 11.5rem); }

@@ -18,6 +18,8 @@
 
 **Why:** They preserve the MAPP design language under free licenses. Druk trial files remain private and are prohibited from the public repository and build.
 
+**Small-type boundary (updated Aug 30, 2026):** Every small gray eyebrow uses Inter Semibold (`600`) with restrained tracking. League Gothic is reserved for large primary headlines. A build-time check enforces the global eyebrow role across every current and archived page.
+
 ## 2026-08-28 — Text-first social discovery
 
 **Status:** Superseded on 2026-08-29 by independent native social galleries.
