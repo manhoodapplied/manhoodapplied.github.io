@@ -11,7 +11,7 @@
 
 ## Technical smoke test
 
-- [x] Homepage, all 17 articles, format archives, five topic archives, About, and 404 load.
+- [x] Homepage, all 19 articles, format archives, five topic archives, About, and 404 load.
 - [x] Emblem, favicon, bundled fonts, `rss.xml`, `robots.txt`, and `sitemap-index.xml` return successfully.
 - [x] Keyboard navigation and visible focus styles pass automated accessibility checks.
 - [x] Layout remains readable on phone, tablet, and desktop widths.

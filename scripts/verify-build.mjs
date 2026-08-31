@@ -20,9 +20,9 @@ const required = ['index.html', 'articles/index.html', 'carousels/index.html', '
 for (const target of required) if (!relativeFiles.has(target)) errors.push(`Missing required output: ${target}`);
 
 const articleHtml = [...relativeFiles].filter((file) => /^articles\/[^/]+\/index\.html$/.test(file));
-if (articleHtml.length !== 17) errors.push(`Expected 17 article pages; found ${articleHtml.length}`);
+if (articleHtml.length !== 19) errors.push(`Expected 19 article pages; found ${articleHtml.length}`);
 
-for (const [page, expectedPosts] of [['carousels/index.html', 7], ['reels/index.html', 7]]) {
+for (const [page, expectedPosts] of [['carousels/index.html', 11], ['reels/index.html', 9]]) {
   const html = await readFile(join(root, page), 'utf8');
   const cards = [...html.matchAll(/data-social-post-card/g)].length;
   const embeds = [...html.matchAll(/<div class="native-social" data-native-social/g)].length;
@@ -74,7 +74,7 @@ for (const file of htmlFiles) {
 }
 
 if (articlePagesWithSocialEmbeds !== 13) errors.push(`Expected 13 post-related article pages with embed controls; found ${articlePagesWithSocialEmbeds}`);
-if (standaloneArticlePages !== 4) errors.push(`Expected 4 standalone text-only article pages; found ${standaloneArticlePages}`);
+if (standaloneArticlePages !== 6) errors.push(`Expected 6 standalone text-only article pages; found ${standaloneArticlePages}`);
 
 const css = (await Promise.all(files.filter((file) => extname(file) === '.css').map((file) => readFile(file, 'utf8')))).join('\n');
 if (!css.includes(':focus-visible')) errors.push('Stylesheet: missing visible keyboard focus rule');
@@ -84,4 +84,4 @@ if (errors.length) {
   console.error(`Build verification failed with ${errors.length} error(s):\n- ${[...new Set(errors)].join('\n- ')}`);
   process.exit(1);
 }
-console.log(`Build verified: ${htmlFiles.length} HTML pages, 17 articles (13 post-related, 4 standalone), 14 independent social posts with native embeds, metadata, JSON-LD, internal links, sitemap, RSS, and robots.`);
+console.log(`Build verified: ${htmlFiles.length} HTML pages, 19 articles (13 post-related, 6 standalone), 20 independent social posts with native embeds, metadata, JSON-LD, internal links, sitemap, RSS, and robots.`);

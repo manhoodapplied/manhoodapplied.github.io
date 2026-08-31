@@ -5,7 +5,7 @@ import { parse } from 'yaml';
 const articleRoot = new URL('../src/content/articles/', import.meta.url);
 const socialRoot = new URL('../src/content/social-posts/', import.meta.url);
 const categories = new Set(['mind-judgment', 'body-health', 'work-money', 'relationships', 'character-discipline']);
-const expected = { articles: 17, socialPosts: 14, carousel: 7, reel: 7 };
+const expected = { articles: 19, socialPosts: 20, carousel: 11, reel: 9 };
 const errors = [];
 
 function validSocialUrl(platform, value, label) {

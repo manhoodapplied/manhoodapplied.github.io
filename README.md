@@ -6,7 +6,7 @@ The site is deliberately separate from the private MAPP content studio. The stud
 
 ## What ships
 
-- 17 independent articles and 14 separately validated social-post records: seven carousels and seven Reels.
+- 19 independent articles and 20 separately validated social-post records: eleven carousels and nine Reels.
 - Five topic archives, plus independent article, carousel, and Reel indexes.
 - Native Instagram, TikTok, and YouTube embeds with viewport-based lazy loading and exact-link fallbacks. Article pages retain click-to-load related-post embeds.
 - Canonical metadata, Open Graph data, Article/Organization/Breadcrumb structured data, RSS, sitemap, robots, and a custom 404.

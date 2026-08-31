@@ -34,7 +34,7 @@
 
 **Why:** Public eligibility and launch completeness should be machine-enforced rather than dependent on memory.
 
-**Count evolution:** The launch baseline was 13 articles, seven carousels, and six Reels. The current verified baseline is 17 articles, seven carousels, and seven Reels.
+**Count evolution:** The launch baseline was 13 articles, seven carousels, and six Reels. The August 29 baseline was 17 articles, seven carousels, and seven Reels. The current baseline is 19 articles, eleven carousels, and nine Reels.
 
 ## 2026-08-28 — Commerce requires complete migration
 
@@ -88,7 +88,7 @@
 
 **Why:** MAPP's article library should be able to answer useful search questions beyond the subjects already published on social media. Keeping the relationship optional preserves the independent article/social architecture and avoids manufacturing a false source-post association.
 
-**Validation:** The public baseline is now 17 articles: 13 post-related pages with exact-link embed fallbacks and four standalone pages. Build verification enforces both counts separately so removing an embed from a post-related article or accidentally attaching one to this launch batch fails review.
+**Validation:** The August 29 public baseline became 17 articles: 13 post-related pages with exact-link embed fallbacks and four standalone pages. Build verification enforces both counts separately so removing an embed from a post-related article or accidentally attaching one to this launch batch fails review.
 
 ## 2026-08-29 — Use permanent Search Console meta verification
 
@@ -97,3 +97,17 @@
 **Why:** A shared meta tag survives normal content releases and verifies every generated page without adding a repository-only HTML file. The sitemap provides whole-site discovery; URL Inspection requests are reserved for the homepage and highest-priority new articles.
 
 **Launch outcome:** Ownership verification succeeded. Search Console accepted both sitemap submissions and priority indexing requests for the homepage plus all four standalone articles. The sitemap rows initially reported `Couldn't fetch` despite verified HTTP 200 XML responses; retain the generated files and recheck Google's processing state before treating that transient first read as an implementation defect.
+
+## 2026-08-31 — Reconcile the complete 20-post social archive
+
+**Decision:** Add the six verified Instagram publications missing after the 14-post website baseline: carousels `009`–`012` and Reels `R008`–`R009`. Add the verified TikTok and YouTube versions of `R004`–`R007` to their existing records.
+
+**Why:** The public galleries should reflect actual platform state, not the date of the last website release. One social record remains the source of truth for every exact platform URL, while absent versions remain omitted. No post media enters GitHub.
+
+**Current baseline:** 20 independent social records—eleven carousels and nine Reels—and 19 articles. Thirteen articles relate to a post; six are standalone.
+
+## 2026-08-31 — Define `/update` as a repeatable release command
+
+**Decision:** Every `/update` invocation reconciles the three live social profiles, publishes missing verified records and platform links, creates exactly two independent search-led articles, updates documentation and count gates, verifies the site, and deploys the reviewed release to GitHub Pages.
+
+**Boundary:** `/update` changes the public website only. It does not upload, edit, or delete social content, and it does not copy production media into GitHub. Sitemap discovery is automatic; manual Search Console requests remain separate unless explicitly requested.
