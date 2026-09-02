@@ -4,6 +4,10 @@ The static editorial website for **Manhood Applied (MAPP)**, published at <https
 
 The site is deliberately separate from the private MAPP content studio. The studio remains the production source of record; this repository contains only public-ready writing, the existing emblem/favicon, and exact outbound post URLs.
 
+## Start here
+
+New Codex sessions and contributors must read [`AGENTS.md`](AGENTS.md) and the current [`public website handoff`](docs/HANDOFF.md) before making changes. The handoff records the deployed baseline, known platform gaps, visual behavior, release checks, and the cross-repository boundary.
+
 ## What ships
 
 - 19 independent articles and 20 separately validated social-post records: eleven carousels and nine Reels.
@@ -30,4 +34,4 @@ npm run verify
 
 The site is live at <https://manhoodapplied.github.io/> from the public repository `manhoodapplied/manhoodapplied.github.io`. The free `manhoodapplied` organization is owned by both `mapp-publisher` and `pablobarriga`. Every push to `main` runs the included GitHub Pages workflow.
 
-See [Publishing](docs/PUBLISHING.md), [Architecture](docs/ARCHITECTURE.md), [SEO launch](docs/SEO-LAUNCH.md), and the [Decision log](docs/DECISIONS.md).
+See the [current handoff](docs/HANDOFF.md), [Publishing](docs/PUBLISHING.md), [Architecture](docs/ARCHITECTURE.md), [SEO launch](docs/SEO-LAUNCH.md), and the [Decision log](docs/DECISIONS.md).

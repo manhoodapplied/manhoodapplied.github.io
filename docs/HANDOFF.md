@@ -1,0 +1,58 @@
+# Public website handoff
+
+## Start here
+
+The live site is <https://manhoodapplied.github.io/>, deployed from the public GitHub repository `manhoodapplied/manhoodapplied.github.io`. The local checkout is `D:\dev\manhoodapplied-website`.
+
+This is MAPP's public editorial and SEO surface. The private production studio at `D:\dev\manlihood-applied` remains the source of truth for social content and publication status. Read the repository `AGENTS.md`, `README.md`, `docs/PUBLISHING.md`, `docs/ARCHITECTURE.md`, and `docs/DECISIONS.md` before changing the public site.
+
+## Current deployed state
+
+- Latest public release: commit `433f636`, successfully deployed August 31, 2026.
+- 19 articles: 13 related to a published social post and 6 independent search-led articles.
+- 20 independent social records: 11 carousels and 9 Reels.
+- The most recent website reconciliation added Instagram carousels `009`–`012`, Reels `R008`–`R009`, and verified TikTok/YouTube versions for Reels `R004`–`R007`.
+- TikTok R003 remains absent because no exact live TikTok post could be verified.
+- GitHub Pages, HTTPS, canonical metadata, structured data, RSS, robots, sitemap generation, and Google Search Console ownership are configured.
+- The existing sitemap is the default discovery path for new releases. Manual Search Console indexing is separate and used only for explicitly selected priority articles.
+
+## Pending local work — not yet live
+
+As of September 2, 2026, the public working tree contains an unfinished release owned by another active MAPP task. It expands the validator baseline to 23 social records—12 carousels and 11 Reels—by adding **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**. It also adds the verified TikTok/YouTube version of **Nobody Is Coming to Save You**, introduces Facebook Reel URL/embed support, and adds official Facebook and Threads links to the footer.
+
+These changes are uncommitted and must not be called deployed until they are reviewed, committed, pushed, the Pages workflow succeeds, and production is checked. Preserve them when starting another task. The private studio documents the official Facebook Page and Threads profile; Instagram, Facebook, Threads, TikTok, and YouTube are now the five official MAPP surfaces.
+
+## Product behavior
+
+- `/articles/` contains the independent text article library.
+- `/carousels/` and `/reels/` show the native social posts, not copied media.
+- Gallery embeds load as they approach the viewport. Article-related embeds remain click-to-load.
+- Platform selectors are deliberately subdued, post headings are compact, columns align intentionally, native posts fill their columns, and no extra card box/padding surrounds the embeds.
+- Instagram iframe height is responsive and scrolling is disabled so the complete native post is visible without an inner scrollbar.
+- Large generic route heroes were removed; the active top-navigation item communicates the current section.
+
+## Release workflow
+
+`/update` is the standing release command. Each invocation:
+
+1. Reconciles exact live Instagram, Facebook, TikTok, and YouTube post URLs against the public collection and verifies the official Threads profile link. Threads posts are not currently a gallery format.
+2. Adds all newly verified studio-Published social records and newly available platform versions.
+3. Publishes exactly two independent 600–900 word articles with unique search intent.
+4. Updates validation counts and all affected documentation.
+5. Builds, verifies, visually reviews, commits, pushes, waits for GitHub Pages, and checks production plus the sitemap.
+
+The command does not authorize creating, uploading, editing, or deleting social-platform content. It does not copy production media into GitHub.
+
+## Required checks
+
+Run `npm run build` and `npm run verify`. The content validator rejects malformed platform URLs, duplicate/mismatched IDs or slugs, missing relationships, invalid categories, articles outside 600–900 words, forbidden media, and unexpected release counts. The generated-site verifier checks routes, internal links, metadata, JSON-LD, native embed presence, accessibility hooks, RSS, robots, sitemap, and article/social totals.
+
+After pushing `main`, wait for `.github/workflows/pages.yml` to succeed and verify the changed live URLs. A successful local build or push alone is not a completed release.
+
+## Hard boundaries
+
+- Never publish studio Draft or Review work.
+- Never infer or fabricate a post URL.
+- Never add carousel exports, Reel files, celebrity imagery, production-vault assets, or Druk trial fonts.
+- Never add commerce to GitHub Pages. Migrate the whole site before the first paid product or checkout.
+- Never claim that sitemap discovery means Google has indexed a page.

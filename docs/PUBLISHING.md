@@ -4,13 +4,13 @@
 
 The private studio command `/update` is the standing public-site release contract. Each invocation performs one complete website update:
 
-1. Compare the live Instagram, TikTok, and YouTube profiles with `src/content/social-posts/`.
+1. Compare the live Instagram, Facebook, TikTok, and YouTube profiles with `src/content/social-posts/`, and verify the official Threads profile link. Threads posts are not currently a gallery format.
 2. Add every newly verified **Published** studio item and attach any newly available exact platform URLs to existing records. Omit platform versions that do not exist.
 3. Publish exactly two new 600–900 word standalone articles with distinct search intent, no `sourcePostId`, unique metadata, two or three related articles, and authoritative sources when a consequential claim requires them.
 4. Update enforced counts and repository documentation.
 5. Run the complete build and verification suite, visually review the affected article and gallery pages at desktop and phone widths, push `main`, wait for GitHub Pages, and verify the live routes and sitemap.
 
-The command never uploads, edits, or deletes a social-media post. It copies no social media, carousel, Reel, celebrity, or studio production assets into this repository. The existing Search Console property discovers normal releases through the sitemap; manual priority-indexing requests are a separate action unless the user explicitly includes them in that run.
+The command never uploads, edits, or deletes a social-media post on any platform. It copies no social media, carousel, Reel, celebrity, or studio production assets into this repository. The existing Search Console property discovers normal releases through the sitemap; manual priority-indexing requests are a separate action unless the user explicitly includes them in that run.
 
 ## Add an article
 

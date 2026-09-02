@@ -26,7 +26,7 @@ Every `src/content/articles/<slug>.md` record contains:
 - optional restrained `sources`
 - a 600–900 word Markdown body
 
-Every `src/content/social-posts/<id>.json` record independently contains its title, description, publication date, format, category, status, and exact Instagram, TikTok, and YouTube post URLs. A social record does not require an article. An article may optionally identify a related social record through `sourcePostId`.
+Every `src/content/social-posts/<id>.json` record independently contains its title, description, publication date, format, category, status, and exact available Instagram, Facebook, TikTok, and YouTube post URLs. Threads is currently an official profile/footer destination rather than a gallery record type. A social record does not require an article. An article may optionally identify a related social record through `sourcePostId`.
 
 Astro validates both record shapes. `scripts/validate-content.mjs` adds cross-record checks that schemas alone cannot enforce: unique slugs and IDs, filename agreement, valid optional relationships, exact launch counts, body length, text-only articles, and platform-specific post URL formats. Article records are rejected if they contain social format or platform-link fields.
 
@@ -42,7 +42,7 @@ Draft entries are filtered from both collections and every generated route. The 
 
 ## Embed behavior and privacy
 
-Carousel and Reel gallery cards automatically request their default native embed only when they approach the viewport. Platform controls switch to another exact version when one exists. YouTube uses the privacy-enhanced `youtube-nocookie.com` player; TikTok and Instagram use their native player frames.
+Carousel and Reel gallery cards automatically request their default native embed only when they approach the viewport. Platform controls switch to another exact version when one exists. YouTube uses the privacy-enhanced `youtube-nocookie.com` player; Facebook, TikTok, and Instagram use their native player frames.
 
 Instagram outbound links retain the exact username-prefixed MAPP URL. The loader normalizes only the embed permalink to Instagram's canonical `/p/<id>/` or `/reel/<id>/` route because the username-prefixed page route is refused inside Instagram's iframe player. Instagram frames use a measured responsive document height and disable nested scrolling so the complete native card remains visible at once.
 

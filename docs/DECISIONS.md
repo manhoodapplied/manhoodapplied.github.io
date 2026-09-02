@@ -111,3 +111,11 @@
 **Decision:** Every `/update` invocation reconciles the three live social profiles, publishes missing verified records and platform links, creates exactly two independent search-led articles, updates documentation and count gates, verifies the site, and deploys the reviewed release to GitHub Pages.
 
 **Boundary:** `/update` changes the public website only. It does not upload, edit, or delete social content, and it does not copy production media into GitHub. Sitemap discovery is automatic; manual Search Console requests remain separate unless explicitly requested.
+
+## 2026-09-02 — Make website context discoverable from every project entry point
+
+**Decision:** Add repository-level `AGENTS.md` files, a dedicated public-site handoff, and a workspace-root project map that explicitly routes work between the private studio and public website.
+
+**Why:** The architecture and release history were documented, but a new Codex session starting from the shared workspace could not discover either repository or its documentation. Documentation that exists but is absent from the startup path is not an effective handoff.
+
+**Implication:** New sessions must read the owning repository's instructions and handoff before acting. Cross-repository changes must keep both sides' summaries current rather than relying on conversation history.
