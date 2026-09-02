@@ -104,13 +104,23 @@
 
 **Why:** The public galleries should reflect actual platform state, not the date of the last website release. One social record remains the source of truth for every exact platform URL, while absent versions remain omitted. No post media enters GitHub.
 
-**Current baseline:** 20 independent social records—eleven carousels and nine Reels—and 19 articles. Thirteen articles relate to a post; six are standalone.
+**Superseded baseline:** 20 independent social records—eleven carousels and nine Reels—and 19 articles. Thirteen articles relate to a post; six are standalone.
 
 ## 2026-08-31 — Define `/update` as a repeatable release command
 
 **Decision:** Every `/update` invocation reconciles the three live social profiles, publishes missing verified records and platform links, creates exactly two independent search-led articles, updates documentation and count gates, verifies the site, and deploys the reviewed release to GitHub Pages.
 
 **Boundary:** `/update` changes the public website only. It does not upload, edit, or delete social content, and it does not copy production media into GitHub. Sitemap discovery is automatic; manual Search Console requests remain separate unless explicitly requested.
+
+## 2026-09-02 — Reconcile the 23-post archive and five official surfaces
+
+**Decision:** Complete the pending public-site release by adding the three studio-verified publications missing from the website: carousel **The Shit You Eat Is Keeping You Numb**, Reel **Self-Respect Is More Important Than Love**, and Reel **Women Notice Men Other Women Want**. Attach the verified TikTok and YouTube versions of **Nobody Is Coming to Save You** and the verified Facebook version of **Self-Respect Is More Important Than Love**.
+
+**Platform model:** Add Facebook as a validated optional post platform with the same lazy native-player and exact-link fallback behavior as the existing platforms. Add the official Facebook and Threads profiles to the site-wide identity links and Organization structured data. Threads remains a profile destination rather than a gallery format.
+
+**Visual application:** Keep every small gray eyebrow in Inter Semibold, every large display role in League Gothic, and every structural terminal mark in signal red. Preserve equal responsive page insets and make the expanded five-link footer wrap inside its container instead of risking a right-edge breach. These are rendered design rules, not visitor-facing rule text.
+
+**Release baseline:** 19 articles and 23 independent social records: twelve carousels and eleven Reels. Thirteen articles remain post-related and six remain standalone.
 
 ## 2026-09-02 — Make website context discoverable from every project entry point
 

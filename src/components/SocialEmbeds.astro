@@ -2,6 +2,7 @@
 interface Props {
   links: {
     instagram?: string;
+    facebook?: string;
     tiktok?: string;
     youtube?: string;
   };
@@ -10,6 +11,7 @@ interface Props {
 const { links } = Astro.props;
 const platforms = [
   links.instagram && { key: 'instagram', label: 'Instagram', url: links.instagram },
+  links.facebook && { key: 'facebook', label: 'Facebook', url: links.facebook },
   links.tiktok && { key: 'tiktok', label: 'TikTok', url: links.tiktok },
   links.youtube && { key: 'youtube', label: 'YouTube', url: links.youtube },
 ].filter(Boolean) as { key: string; label: string; url: string }[];
@@ -115,6 +117,14 @@ const platforms = [
             quote.append(section);
             stage.append(quote);
             await loadScript('https://www.tiktok.com/embed.js', 'tiktok-embed-script');
+          } else if (platform === 'facebook') {
+            const frame = document.createElement('iframe');
+            frame.src = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=true&width=500`;
+            frame.title = 'Manhood Applied Reel on Facebook';
+            frame.loading = 'lazy';
+            frame.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+            frame.allowFullscreen = true;
+            stage.append(frame);
           }
           stage.classList.remove('embed-stage--loading');
         } catch {

@@ -5,7 +5,7 @@ import { parse } from 'yaml';
 const articleRoot = new URL('../src/content/articles/', import.meta.url);
 const socialRoot = new URL('../src/content/social-posts/', import.meta.url);
 const categories = new Set(['mind-judgment', 'body-health', 'work-money', 'relationships', 'character-discipline']);
-const expected = { articles: 19, socialPosts: 20, carousel: 11, reel: 9 };
+const expected = { articles: 19, socialPosts: 23, carousel: 12, reel: 11 };
 const errors = [];
 
 function validSocialUrl(platform, value, label) {
@@ -15,6 +15,8 @@ function validSocialUrl(platform, value, label) {
   const host = url.hostname.replace(/^www\./, '');
   const valid = platform === 'instagram'
     ? host === 'instagram.com' && /^\/manhoodapplied\/(p|reel)\/[^/]+\/?$/.test(url.pathname)
+    : platform === 'facebook'
+      ? host === 'facebook.com' && /^\/reel\/\d+\/?$/.test(url.pathname)
     : platform === 'tiktok'
       ? host === 'tiktok.com' && /^\/@manhoodapplied\/video\/\d+\/?$/.test(url.pathname)
       : platform === 'youtube'

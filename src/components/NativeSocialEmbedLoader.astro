@@ -68,6 +68,15 @@
         frame.setAttribute('scrolling', 'no');
         frame.allowFullscreen = true;
         stage.replaceChildren(frame);
+      } else if (platform === 'facebook') {
+        const frame = document.createElement('iframe');
+        frame.className = 'native-social__frame native-social__frame--video';
+        frame.src = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=true&width=500`;
+        frame.title = 'Manhood Applied Reel on Facebook';
+        frame.loading = 'lazy';
+        frame.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+        frame.allowFullscreen = true;
+        stage.replaceChildren(frame);
       } else {
         throw new Error('Unsupported platform.');
       }

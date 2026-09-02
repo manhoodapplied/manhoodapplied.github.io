@@ -84,3 +84,11 @@ Minimal record:
 The GitHub repository must be public and named `manhoodapplied/manhoodapplied.github.io`. In repository **Settings → Pages**, choose **GitHub Actions** as the source. Every push to `main` runs `.github/workflows/pages.yml`; manual runs are also available.
 
 The deployment cannot happen until the organization and repository exist. Do not publish this project under a differently named personal Pages URL as a temporary substitute, because that changes canonical URLs and creates avoidable SEO migration work.
+
+## Sep 2, 2026 social reconciliation
+
+- Add three studio-confirmed Published records: **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**.
+- Add the verified TikTok and YouTube URLs for **Nobody Is Coming to Save You** and the verified Facebook Reel URL for **Self-Respect Is More Important Than Love**.
+- Add the official Facebook and Threads profiles to the site-wide identity links. Threads remains outside the post galleries.
+- The release count gate is 19 articles and 23 social records: twelve carousels and eleven Reels.
+- Preserve the visual system in rendered form: Inter Semibold for small gray eyebrows, League Gothic only for large display type, signal-red structural punctuation, equal page insets, and a wrapping footer that cannot breach the right margin.

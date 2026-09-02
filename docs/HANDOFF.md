@@ -16,11 +16,11 @@ This is MAPP's public editorial and SEO surface. The private production studio a
 - GitHub Pages, HTTPS, canonical metadata, structured data, RSS, robots, sitemap generation, and Google Search Console ownership are configured.
 - The existing sitemap is the default discovery path for new releases. Manual Search Console indexing is separate and used only for explicitly selected priority articles.
 
-## Pending local work — not yet live
+## Current release candidate — not yet live
 
-As of September 2, 2026, the public working tree contains an unfinished release owned by another active MAPP task. It expands the validator baseline to 23 social records—12 carousels and 11 Reels—by adding **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**. It also adds the verified TikTok/YouTube version of **Nobody Is Coming to Save You**, introduces Facebook Reel URL/embed support, and adds official Facebook and Threads links to the footer.
+The September 2 release candidate expands the validator baseline to 23 social records—12 carousels and 11 Reels—by adding **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**. It also adds the verified TikTok/YouTube version of **Nobody Is Coming to Save You**, introduces Facebook Reel URL/embed support, and adds official Facebook and Threads links to the footer and Organization identity data.
 
-These changes are uncommitted and must not be called deployed until they are reviewed, committed, pushed, the Pages workflow succeeds, and production is checked. Preserve them when starting another task. The private studio documents the official Facebook Page and Threads profile; Instagram, Facebook, Threads, TikTok, and YouTube are now the five official MAPP surfaces.
+Do not call this candidate deployed until it is committed, pushed, the Pages workflow succeeds, and production is checked. Instagram, Facebook, Threads, TikTok, and YouTube are the five official MAPP surfaces; Threads remains a profile destination rather than a native gallery format.
 
 ## Product behavior
 

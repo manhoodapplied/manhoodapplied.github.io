@@ -10,9 +10,9 @@ New Codex sessions and contributors must read [`AGENTS.md`](AGENTS.md) and the c
 
 ## What ships
 
-- 19 independent articles and 20 separately validated social-post records: eleven carousels and nine Reels.
+- 19 independent articles and 23 separately validated social-post records: twelve carousels and eleven Reels.
 - Five topic archives, plus independent article, carousel, and Reel indexes.
-- Native Instagram, TikTok, and YouTube embeds with viewport-based lazy loading and exact-link fallbacks. Article pages retain click-to-load related-post embeds.
+- Native Instagram, Facebook, TikTok, and YouTube embeds with viewport-based lazy loading and exact-link fallbacks. Article pages retain click-to-load related-post embeds.
 - Canonical metadata, Open Graph data, Article/Organization/Breadcrumb structured data, RSS, sitemap, robots, and a custom 404.
 - Self-hosted League Gothic and Inter packages under free licenses. No Druk trial files.
 - Static deployment through GitHub Actions and GitHub Pages, with no paid services or visitor analytics.

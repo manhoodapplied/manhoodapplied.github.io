@@ -13,6 +13,7 @@ const { post, relatedArticle, index } = Astro.props;
 const category = CATEGORIES[post.data.category];
 const platforms = [
   post.data.socialLinks.instagram && { key: 'instagram', label: 'Instagram', url: post.data.socialLinks.instagram },
+  post.data.socialLinks.facebook && { key: 'facebook', label: 'Facebook', url: post.data.socialLinks.facebook },
   post.data.socialLinks.tiktok && { key: 'tiktok', label: 'TikTok', url: post.data.socialLinks.tiktok },
   post.data.socialLinks.youtube && { key: 'youtube', label: 'YouTube', url: post.data.socialLinks.youtube },
 ].filter(Boolean) as { key: string; label: string; url: string }[];

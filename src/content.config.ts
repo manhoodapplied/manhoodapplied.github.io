@@ -2,11 +2,12 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
-const platformUrl = (platform: 'instagram' | 'tiktok' | 'youtube') =>
+const platformUrl = (platform: 'instagram' | 'facebook' | 'tiktok' | 'youtube') =>
   z.url().refine((value) => {
     const host = new URL(value).hostname.replace(/^www\./, '');
     const allowedHosts = {
       instagram: ['instagram.com'],
+      facebook: ['facebook.com'],
       tiktok: ['tiktok.com'],
       youtube: ['youtube.com', 'youtu.be'],
     };
@@ -46,6 +47,7 @@ const socialPosts = defineCollection({
     draft: z.boolean().default(false),
     socialLinks: z.object({
       instagram: platformUrl('instagram').optional(),
+      facebook: platformUrl('facebook').optional(),
       tiktok: platformUrl('tiktok').optional(),
       youtube: platformUrl('youtube').optional(),
     }).refine((links) => Object.values(links).some(Boolean), 'At least one exact social post URL is required'),
