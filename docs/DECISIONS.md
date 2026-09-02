@@ -131,3 +131,11 @@
 **Why:** The architecture and release history were documented, but a new Codex session starting from the shared workspace could not discover either repository or its documentation. Documentation that exists but is absent from the startup path is not an effective handoff.
 
 **Implication:** New sessions must read the owning repository's instructions and handoff before acting. Cross-repository changes must keep both sides' summaries current rather than relying on conversation history.
+
+## 2026-09-02 — Publish R009 across the three video surfaces
+
+**Decision:** Preserve Instagram order by publishing Reel `R009`, **Man Up and Keep Going**, as the next cross-platform video on YouTube, TikTok, and Facebook. Use the approved V9 master and value-rich platform copy. Keep the Facebook destination Facebook-only so the existing Instagram Reel is not duplicated.
+
+**Verified URLs:** YouTube `https://www.youtube.com/shorts/I8pkWBHG5ls`; TikTok `https://www.tiktok.com/@manhoodapplied/video/7680903978582035719`; Facebook `https://www.facebook.com/reel/2436093416883557`.
+
+**Verification:** YouTube published from the Manhood Applied channel with no copyright issues. TikTok passed music and content checks, carries the AI-generated label, and resolved to **Everyone**. Facebook passed copyright checks and is Public on the Manhood Applied Page only.

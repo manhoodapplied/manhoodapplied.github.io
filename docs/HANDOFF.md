@@ -22,6 +22,8 @@ The September 2 release expanded the validator baseline to 23 social records—1
 
 Commit `cad24a8` was pushed to `main`; GitHub Pages workflow run `33625090265` succeeded; and production was checked for the homepage, carousel and Reel counts, newest records, Facebook Reel link, footer profiles, robots, and sitemaps. Instagram, Facebook, Threads, TikTok, and YouTube are the five official MAPP surfaces; Threads remains a profile destination rather than a native gallery format.
 
+The September 2 cross-platform follow-up published Reel `R009`, **Man Up and Keep Going**, to YouTube at `https://www.youtube.com/shorts/I8pkWBHG5ls`, TikTok at `https://www.tiktok.com/@manhoodapplied/video/7680903978582035719`, and Facebook at `https://www.facebook.com/reel/2436093416883557`. YouTube and both TikTok pre-post checks reported no issues; TikTok resolved to **Everyone** after review; and the Facebook Reel is Public, Facebook-only, and not an Instagram duplicate.
+
 ## Product behavior
 
 - `/articles/` contains the independent text article library.
