@@ -8,7 +8,7 @@ This is MAPP's public editorial and SEO surface. The private production studio a
 
 ## Current deployed state
 
-- Latest public release: commit `cad24a8`, successfully deployed September 2, 2026.
+- Latest content release: commit `cff2c31`, successfully deployed September 2, 2026 through GitHub Pages workflow `33627315911`.
 - 19 articles: 13 related to a published social post and 6 independent search-led articles.
 - 23 independent social records: 12 carousels and 11 Reels.
 - The most recent website reconciliation added **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**; verified the TikTok/YouTube versions of **Nobody Is Coming to Save You**; added Facebook Reel support; and added official Facebook and Threads links.
@@ -22,7 +22,7 @@ The September 2 release expanded the validator baseline to 23 social records—1
 
 Commit `cad24a8` was pushed to `main`; GitHub Pages workflow run `33625090265` succeeded; and production was checked for the homepage, carousel and Reel counts, newest records, Facebook Reel link, footer profiles, robots, and sitemaps. Instagram, Facebook, Threads, TikTok, and YouTube are the five official MAPP surfaces; Threads remains a profile destination rather than a native gallery format.
 
-The September 2 cross-platform follow-up published Reel `R009`, **Man Up and Keep Going**, to YouTube at `https://www.youtube.com/shorts/I8pkWBHG5ls`, TikTok at `https://www.tiktok.com/@manhoodapplied/video/7680903978582035719`, and Facebook at `https://www.facebook.com/reel/2436093416883557`. YouTube and both TikTok pre-post checks reported no issues; TikTok resolved to **Everyone** after review; and the Facebook Reel is Public, Facebook-only, and not an Instagram duplicate.
+The September 2 cross-platform follow-up published Reel `R009`, **Man Up and Keep Going**, to YouTube at `https://www.youtube.com/shorts/I8pkWBHG5ls`, TikTok at `https://www.tiktok.com/@manhoodapplied/video/7680903978582035719`, and Facebook at `https://www.facebook.com/reel/2436093416883557`. YouTube and both TikTok pre-post checks reported no issues; TikTok resolved to **Everyone** after review; and the Facebook Reel is Public, Facebook-only, and not an Instagram duplicate. Content release `cff2c31` added all three exact links to the public archive; workflow `33627315911` succeeded, and production returned HTTP 200 for the homepage, articles, carousels, and Reels routes with all four R009 platform links present.
 
 ## Product behavior
 

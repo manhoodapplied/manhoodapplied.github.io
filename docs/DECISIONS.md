@@ -139,3 +139,5 @@
 **Verified URLs:** YouTube `https://www.youtube.com/shorts/I8pkWBHG5ls`; TikTok `https://www.tiktok.com/@manhoodapplied/video/7680903978582035719`; Facebook `https://www.facebook.com/reel/2436093416883557`.
 
 **Verification:** YouTube published from the Manhood Applied channel with no copyright issues. TikTok passed music and content checks, carries the AI-generated label, and resolved to **Everyone**. Facebook passed copyright checks and is Public on the Manhood Applied Page only.
+
+**Public archive outcome:** Content release `cff2c31` added all three exact cross-platform URLs to the existing R009 record. GitHub Pages workflow `33627315911` succeeded, and production verification found the Instagram, Facebook, TikTok, and YouTube links on the live Reels archive.

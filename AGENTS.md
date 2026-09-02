@@ -28,14 +28,14 @@ Also read `D:\dev\manlihood-applied\docs\HANDOFF.md` when the task depends on cu
 
 ## Current deployed baseline
 
-Release `cad24a8` deployed successfully on September 2, 2026:
+Content release `cff2c31` deployed successfully on September 2, 2026:
 
 - 19 published articles: 13 post-related and 6 standalone.
 - 23 independent social records: 12 carousels and 11 Reels.
 - TikTok has no verified R003 post, so that platform link is intentionally absent.
 - Google Search Console ownership and sitemap submission are configured. Normal releases rely on the existing sitemap; manual URL Inspection requests are reserved for explicitly selected priority pages.
 
-The September 2 release also introduced Facebook Reel embeds and official Facebook and Threads links. Always inspect `git status`, the latest commit, and `docs/HANDOFF.md` before describing later work as live.
+The September 2 baseline release introduced Facebook Reel embeds and official Facebook and Threads links. The `cff2c31` follow-up added the exact Facebook, TikTok, and YouTube versions of R009. Always inspect `git status`, the latest commit, and `docs/HANDOFF.md` before describing later work as live.
 
 Treat these numbers as a release baseline, not a permanent product limit. Every content change must update `scripts/validate-content.mjs`, `scripts/verify-build.mjs`, README/documentation counts, and `docs/HANDOFF.md` together.
 
