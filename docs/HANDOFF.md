@@ -8,19 +8,19 @@ This is MAPP's public editorial and SEO surface. The private production studio a
 
 ## Current deployed state
 
-- Latest public release: commit `433f636`, successfully deployed August 31, 2026.
+- Latest public release: commit `cad24a8`, successfully deployed September 2, 2026.
 - 19 articles: 13 related to a published social post and 6 independent search-led articles.
-- 20 independent social records: 11 carousels and 9 Reels.
-- The most recent website reconciliation added Instagram carousels `009`–`012`, Reels `R008`–`R009`, and verified TikTok/YouTube versions for Reels `R004`–`R007`.
+- 23 independent social records: 12 carousels and 11 Reels.
+- The most recent website reconciliation added **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**; verified the TikTok/YouTube versions of **Nobody Is Coming to Save You**; added Facebook Reel support; and added official Facebook and Threads links.
 - TikTok R003 remains absent because no exact live TikTok post could be verified.
 - GitHub Pages, HTTPS, canonical metadata, structured data, RSS, robots, sitemap generation, and Google Search Console ownership are configured.
 - The existing sitemap is the default discovery path for new releases. Manual Search Console indexing is separate and used only for explicitly selected priority articles.
 
-## Current release candidate — not yet live
+## September 2 deployed release
 
-The September 2 release candidate expands the validator baseline to 23 social records—12 carousels and 11 Reels—by adding **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**. It also adds the verified TikTok/YouTube version of **Nobody Is Coming to Save You**, introduces Facebook Reel URL/embed support, and adds official Facebook and Threads links to the footer and Organization identity data.
+The September 2 release expanded the validator baseline to 23 social records—12 carousels and 11 Reels—by adding **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**. It also added the verified TikTok/YouTube version of **Nobody Is Coming to Save You**, introduced Facebook Reel URL/embed support, and added official Facebook and Threads links to the footer and Organization identity data.
 
-Do not call this candidate deployed until it is committed, pushed, the Pages workflow succeeds, and production is checked. Instagram, Facebook, Threads, TikTok, and YouTube are the five official MAPP surfaces; Threads remains a profile destination rather than a native gallery format.
+Commit `cad24a8` was pushed to `main`; GitHub Pages workflow run `33625090265` succeeded; and production was checked for the homepage, carousel and Reel counts, newest records, Facebook Reel link, footer profiles, robots, and sitemaps. Instagram, Facebook, Threads, TikTok, and YouTube are the five official MAPP surfaces; Threads remains a profile destination rather than a native gallery format.
 
 ## Product behavior
 

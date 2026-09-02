@@ -122,6 +122,8 @@
 
 **Release baseline:** 19 articles and 23 independent social records: twelve carousels and eleven Reels. Thirteen articles remain post-related and six remain standalone.
 
+**Deployment outcome:** Release commit `cad24a8` passed the complete build and verification suite, deployed through successful GitHub Pages workflow `33625090265`, and was verified on production on September 2, 2026. The 23-post baseline, Facebook Reel player, and Facebook/Threads identity links are live.
+
 ## 2026-09-02 — Make website context discoverable from every project entry point
 
 **Decision:** Add repository-level `AGENTS.md` files, a dedicated public-site handoff, and a workspace-root project map that explicitly routes work between the private studio and public website.
