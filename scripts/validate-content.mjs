@@ -5,7 +5,7 @@ import { parse } from 'yaml';
 const articleRoot = new URL('../src/content/articles/', import.meta.url);
 const socialRoot = new URL('../src/content/social-posts/', import.meta.url);
 const categories = new Set(['mind-judgment', 'body-health', 'work-money', 'relationships', 'character-discipline']);
-const expected = { articles: 19, socialPosts: 23, carousel: 12, reel: 11 };
+const expected = { articles: 21, socialPosts: 26, carousel: 13, reel: 12, question: 1 };
 const errors = [];
 
 function validSocialUrl(platform, value, label) {
@@ -78,7 +78,7 @@ for (const name of socialNames) {
   if (data.id !== fileId) errors.push(`${name}: id must match its filename`);
   if (!data.title || data.title.length < 5) errors.push(`${name}: title is too short`);
   if (!data.description || data.description.length < 30 || data.description.length > 180) errors.push(`${name}: description must be 30–180 characters`);
-  if (!['carousel', 'reel'].includes(data.contentType)) errors.push(`${name}: invalid content type`);
+  if (!['carousel', 'reel', 'question'].includes(data.contentType)) errors.push(`${name}: invalid content type`);
   if (!categories.has(data.category)) errors.push(`${name}: invalid category`);
   if (typeof data.draft !== 'boolean') errors.push(`${name}: draft must be true or false`);
   if (/\bdruk\b/i.test(JSON.stringify(data))) errors.push(`${name}: prohibited Druk reference`);
@@ -92,7 +92,7 @@ const publishedArticles = articles.filter(({ data }) => data.draft === false);
 const publishedSocial = socialPosts.filter(({ data }) => data.draft === false);
 if (publishedArticles.length !== expected.articles) errors.push(`Expected ${expected.articles} published articles; found ${publishedArticles.length}`);
 if (publishedSocial.length !== expected.socialPosts) errors.push(`Expected ${expected.socialPosts} published social posts; found ${publishedSocial.length}`);
-for (const type of ['carousel', 'reel']) {
+for (const type of ['carousel', 'reel', 'question']) {
   const count = publishedSocial.filter(({ data }) => data.contentType === type).length;
   if (count !== expected[type]) errors.push(`Expected ${expected[type]} social ${type} entries; found ${count}`);
 }
@@ -120,4 +120,4 @@ if (errors.length) {
   console.error(`Content validation failed with ${errors.length} error(s):\n- ${errors.join('\n- ')}`);
   process.exit(1);
 }
-console.log(`Content valid: ${publishedArticles.length} independent articles and ${publishedSocial.length} independent social posts (${expected.carousel} carousels, ${expected.reel} Reels).`);
+console.log(`Content valid: ${publishedArticles.length} independent articles and ${publishedSocial.length} independent social posts (${expected.carousel} carousels, ${expected.reel} Reels, ${expected.question} question).`);

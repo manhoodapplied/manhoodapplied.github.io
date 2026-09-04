@@ -63,7 +63,7 @@ const jsonLd = [
       <div class="article-byline"><time datetime={article.data.publishedAt.toISOString()}>{publishedDate}</time><span>{reading.minutes} min read</span><span>{reading.wordCount} words</span></div>
     </header>
     <div class="article-layout">
-      <aside class="article-rail" aria-label="Article details"><span>Topic</span><a href={`/topics/${article.data.category}/`}>{category.name} →</a>{sourcePost && <><span>Related post</span><a href={`/${sourcePost.data.contentType === 'carousel' ? 'carousels' : 'reels'}/#${sourcePost.data.id}`}>{sourcePost.data.contentType === 'carousel' ? 'Carousel' : 'Reel'} →</a></>}</aside>
+      <aside class="article-rail" aria-label="Article details"><span>Topic</span><a href={`/topics/${article.data.category}/`}>{category.name} →</a>{sourcePost && <><span>Related post</span><a href={`/${sourcePost.data.contentType === 'carousel' ? 'carousels' : sourcePost.data.contentType === 'reel' ? 'reels' : 'questions'}/#${sourcePost.data.id}`}>{sourcePost.data.contentType === 'carousel' ? 'Carousel' : sourcePost.data.contentType === 'reel' ? 'Reel' : 'Question'} →</a></>}</aside>
       <div class="article-prose"><Content /></div>
     </div>
     {article.data.sources.length > 0 && <section class="source-list" aria-labelledby="sources-title"><p class="eyebrow">FURTHER READING</p><h2 id="sources-title">Sources<span>.</span></h2><ol>{article.data.sources.map((source) => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a><span>{source.publication}</span></li>)}</ol></section>}

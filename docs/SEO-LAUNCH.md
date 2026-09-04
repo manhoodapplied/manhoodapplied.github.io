@@ -35,7 +35,7 @@ Search Console launch status on August 29, 2026: ownership verified by HTML tag;
 
 ## Social profiles
 
-Keep `https://manhoodapplied.github.io/` on the official Instagram, Facebook, Threads, TikTok, and YouTube profiles. Do not replace exact post links inside articles or social records with profile links.
+Keep `https://manhoodapplied.github.io/` on the official Instagram, Facebook, TikTok, and YouTube profiles. Threads is permanently closed. Do not replace exact post links inside articles or social records with profile links.
 
 ## Ongoing release check
 

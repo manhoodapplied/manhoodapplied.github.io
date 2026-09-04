@@ -141,3 +141,11 @@
 **Verification:** YouTube published from the Manhood Applied channel with no copyright issues. TikTok passed music and content checks, carries the AI-generated label, and resolved to **Everyone**. Facebook passed copyright checks and is Public on the Manhood Applied Page only.
 
 **Public archive outcome:** Content release `cff2c31` added all three exact cross-platform URLs to the existing R009 record. GitHub Pages workflow `33627315911` succeeded, and production verification found the Instagram, Facebook, TikTok, and YouTube links on the live Reels archive.
+
+## 2026-09-03 — Prepare the first Question archive and remove Threads
+
+**Decision:** Treat single-image Questions as a third validated social format rather than forcing them into Carousels. Add a dedicated `/questions/` archive, navigation entry, homepage discovery section and the published Q001 Instagram record. Remove Threads from footer identity links and Organization structured data because the account is permanently closed.
+
+**Content candidate:** Reconcile published carousel `014`, Reel `R012`, the YouTube/TikTok versions of R010 and the Facebook version of R011. Add exactly two standalone articles about cleaning up a social feed and building an adult social life. The resulting local gate is 21 articles and 26 social records: 13 carousels, 12 Reels and 1 Question; 13 articles are post-related and 8 are standalone.
+
+**Release boundary:** A passing local build is not a release. The Sep 4 platform actions produced exact verified URLs for R011 on YouTube/TikTok and R012 on Facebook, so the release candidate may be committed and pushed. Completion still requires a successful GitHub Pages workflow and production verification.

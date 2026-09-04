@@ -4,7 +4,7 @@
 
 The private studio command `/update` is the standing public-site release contract. Each invocation performs one complete website update:
 
-1. Compare the live Instagram, Facebook, TikTok, and YouTube profiles with `src/content/social-posts/`, and verify the official Threads profile link. Threads posts are not currently a gallery format.
+1. Compare the live Instagram, Facebook, TikTok, and YouTube profiles with `src/content/social-posts/`. Threads is permanently closed and has no public-site destination.
 2. Add every newly verified **Published** studio item and attach any newly available exact platform URLs to existing records. Omit platform versions that do not exist.
 3. Publish exactly two new 600–900 word standalone articles with distinct search intent, no `sourcePostId`, unique metadata, two or three related articles, and authoritative sources when a consequential claim requires them.
 4. Update enforced counts and repository documentation.
@@ -68,6 +68,8 @@ Minimal record:
 }
 ```
 
+Valid social formats are `carousel`, `reel`, and `question`. Questions are published single-image conversation prompts and have their own `/questions/` archive; they use the same exact-link and native-embed rules as other social records.
+
 ## SEO publishing checklist
 
 - One primary question or search intent per article.
@@ -94,3 +96,12 @@ The deployment cannot happen until the organization and repository exist. Do not
 - Preserve the visual system in rendered form: Inter Semibold for small gray eyebrows, League Gothic only for large display type, signal-red structural punctuation, equal page insets, and a wrapping footer that cannot breach the right margin.
 - Release commit `cad24a8` passed the complete build and verification suite, GitHub Pages workflow `33625090265`, and production checks on September 2, 2026.
 - Content release `cff2c31` added the exact YouTube, TikTok, and Facebook versions of Reel `R009`, **Man Up and Keep Going**: `https://www.youtube.com/shorts/I8pkWBHG5ls`, `https://www.tiktok.com/@manhoodapplied/video/7680903978582035719`, and `https://www.facebook.com/reel/2436093416883557`. TikTok is verified **Everyone**; Facebook is Public and Facebook-only. GitHub Pages workflow `33627315911` succeeded, and the production Reels archive exposes all four R009 platform links.
+
+## Sep 4, 2026 verified release candidate
+
+- Added verified published records for carousel `014`, **Your Feed Is Fucking With You**; Reel `R012`, **Stop Trying to Buy Her Interest**; and question `Q001`, **Your Ex Texts “I Miss You” at 1:17 A.M.**
+- Added the verified YouTube and TikTok versions of Reel `R010`; the verified Facebook, YouTube and TikTok versions of Reel `R011`; and the verified Facebook version of Reel `R012`.
+- Removed the permanently dead Threads profile and added the `/questions/` native-embed archive.
+- Added exactly two standalone articles: **How to Clean Up Your Social Media Feed Without Deleting Every App** and **How to Build a Social Life From Scratch as an Adult**. Both have independent search intent, no `sourcePostId`, and remain within the 600–900 word gate.
+- The local count gate is 21 articles and 26 social records: 13 carousels, 12 Reels and 1 Question; 13 articles are post-related and 8 are standalone. The build and generated-output verification pass.
+- The distribution prerequisites are complete: R011 is public on YouTube at `https://youtube.com/shorts/qz8M338kFYs` and visible to Everyone on TikTok at `https://www.tiktok.com/@manhoodapplied/video/7681808179419696391`; R012 is Public on Facebook at `https://www.facebook.com/reel/2278243649593936/`. The candidate is ready to build, verify, commit, push and verify on production.

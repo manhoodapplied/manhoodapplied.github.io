@@ -11,6 +11,7 @@ const socialPosts = await getPublishedSocialPosts();
 const featured = articles.filter((article) => article.data.featured).slice(0, 4);
 const carousels = socialPosts.filter((post) => post.data.contentType === 'carousel').slice(0, 2);
 const reels = socialPosts.filter((post) => post.data.contentType === 'reel').slice(0, 2);
+const questions = socialPosts.filter((post) => post.data.contentType === 'question').slice(0, 2);
 const relatedArticle = (postId: string) => articles.find((article) => article.data.sourcePostId === postId);
 const organizationJsonLd = { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/brand/manhood-applied-emblem.png`, sameAs: Object.values(SITE.social) };
 ---
@@ -31,9 +32,10 @@ const organizationJsonLd = { '@context': 'https://schema.org', '@type': 'Organiz
     <div class="topic-grid">{Object.entries(CATEGORIES).map(([slug, category]) => <a href={`/topics/${slug}/`}><span>{category.number}</span><h3>{category.name}</h3><p>{category.description}</p><i aria-hidden="true">→</i></a>)}</div>
   </section>
   <section class="section social-home" aria-label="Social content library">
-    <div class="section-heading"><div><p class="eyebrow">ORIGINAL SOCIAL POSTS</p><TerminalTitle as="h2">Watch. Swipe. Apply</TerminalTitle></div><p>Carousels and Reels are published independently from the articles. Explore the actual posts here or open the complete libraries.</p></div>
+    <div class="section-heading"><div><p class="eyebrow">ORIGINAL SOCIAL POSTS</p><TerminalTitle as="h2">Watch. Swipe. Answer. Apply</TerminalTitle></div><p>Carousels, Reels, and Questions are published independently from the articles. Explore the actual posts here or open the complete libraries.</p></div>
     <div class="social-home__group"><div class="section-heading section-heading--compact"><TerminalTitle as="h2">Carousels</TerminalTitle><a href="/carousels/">All carousels →</a></div><div class="social-gallery__grid">{carousels.map((post) => <SocialPostCard post={post} relatedArticle={relatedArticle(post.data.id)} />)}</div></div>
     <div class="social-home__group"><div class="section-heading section-heading--compact"><TerminalTitle as="h2">Reels</TerminalTitle><a href="/reels/">All Reels →</a></div><div class="social-gallery__grid">{reels.map((post) => <SocialPostCard post={post} relatedArticle={relatedArticle(post.data.id)} />)}</div></div>
+    <div class="social-home__group"><div class="section-heading section-heading--compact"><TerminalTitle as="h2">Questions</TerminalTitle><a href="/questions/">All Questions →</a></div><div class="social-gallery__grid">{questions.map((post) => <SocialPostCard post={post} relatedArticle={relatedArticle(post.data.id)} />)}</div></div>
   </section>
   <NativeSocialEmbedLoader />
   <section class="manifesto"><p class="eyebrow">MANHOOD, APPLIED</p><TerminalTitle as="h2">Keep your heart. Raise your standards</TerminalTitle><p>Masculinity does not need another costume. It needs judgment, responsibility, courage, and the willingness to practice what you claim to value.</p><a class="button button--primary" href="/about/">What we believe</a></section>

@@ -6,7 +6,6 @@ export const SITE = {
   promise: 'Useful ideas. Applied to real life.',
   social: {
     instagram: 'https://www.instagram.com/manhoodapplied/',
-    threads: 'https://www.threads.com/@manhoodapplied',
     facebook: 'https://www.facebook.com/profile.php?id=61594238271262',
     tiktok: 'https://www.tiktok.com/@manhoodapplied',
     youtube: 'https://www.youtube.com/@manhoodapplied',

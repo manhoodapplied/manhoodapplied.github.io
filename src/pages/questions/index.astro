@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SocialPostGallery from '../../components/SocialPostGallery.astro';
+import { getPublishedArticles, getPublishedSocialPosts } from '../../utils/content';
+const articles = await getPublishedArticles();
+const posts = (await getPublishedSocialPosts()).filter((post) => post.data.contentType === 'question');
+---
+<BaseLayout title="Questions" description="Answer every published Manhood Applied question post and open the original conversation on Instagram." canonicalPath="/questions/">
+  <SocialPostGallery title="Questions" posts={posts} articles={articles} />
+</BaseLayout>

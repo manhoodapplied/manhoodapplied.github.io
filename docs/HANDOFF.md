@@ -16,6 +16,15 @@ This is MAPP's public editorial and SEO surface. The private production studio a
 - GitHub Pages, HTTPS, canonical metadata, structured data, RSS, robots, sitemap generation, and Google Search Console ownership are configured.
 - The existing sitemap is the default discovery path for new releases. Manual Search Console indexing is separate and used only for explicitly selected priority articles.
 
+## September 4 verified release candidate — ready to deploy
+
+- The verified local build contains 21 articles: 13 post-related and 8 standalone. The two new standalone articles are **How to Clean Up Your Social Media Feed Without Deleting Every App** and **How to Build a Social Life From Scratch as an Adult**.
+- It contains 26 independent social records: 13 carousels, 12 Reels and 1 single-image Question. The new records are carousel `014`, Reel `R012` and published question `Q001`; R010 includes its verified YouTube and TikTok URLs; R011 includes Facebook, YouTube `https://youtube.com/shorts/qz8M338kFYs` and TikTok `https://www.tiktok.com/@manhoodapplied/video/7681808179419696391`; and R012 includes Facebook `https://www.facebook.com/reel/2278243649593936/`.
+- The dead Threads profile has been removed from footer navigation and Organization structured data. Threads is permanently closed and is no longer an official public-site destination.
+- `/questions/` is the native-embed archive for the new Question format. The homepage, navigation, schema, related-post routing, validators and generated-site checks all recognize the format.
+- `npm run build` and `npm run verify` pass at 34 HTML pages, 21 articles and 26 social records. Desktop homepage, phone Question archive and phone article review passed with no Threads link or horizontal overflow.
+- The three distribution prerequisites are complete and independently verified: R011 is public on YouTube and visible to Everyone on TikTok, while R012 is Public on Facebook only. The release candidate may now be committed, pushed and verified through GitHub Pages.
+
 ## September 2 deployed release
 
 The September 2 release expanded the validator baseline to 23 social records—12 carousels and 11 Reels—by adding **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**. It also added the verified TikTok/YouTube version of **Nobody Is Coming to Save You**, introduced Facebook Reel URL/embed support, and added official Facebook and Threads links to the footer and Organization identity data.
@@ -27,7 +36,7 @@ The September 2 cross-platform follow-up published Reel `R009`, **Man Up and Kee
 ## Product behavior
 
 - `/articles/` contains the independent text article library.
-- `/carousels/` and `/reels/` show the native social posts, not copied media.
+- `/carousels/`, `/reels/`, and `/questions/` show the native social posts, not copied media.
 - Gallery embeds load as they approach the viewport. Article-related embeds remain click-to-load.
 - Platform selectors are deliberately subdued, post headings are compact, columns align intentionally, native posts fill their columns, and no extra card box/padding surrounds the embeds.
 - Instagram iframe height is responsive and scrolling is disabled so the complete native post is visible without an inner scrollbar.
@@ -37,7 +46,7 @@ The September 2 cross-platform follow-up published Reel `R009`, **Man Up and Kee
 
 `/update` is the standing release command. Each invocation:
 
-1. Reconciles exact live Instagram, Facebook, TikTok, and YouTube post URLs against the public collection and verifies the official Threads profile link. Threads posts are not currently a gallery format.
+1. Reconciles exact live Instagram, Facebook, TikTok, and YouTube post URLs against the public collection and confirms that the permanently closed Threads identity remains absent.
 2. Adds all newly verified studio-Published social records and newly available platform versions.
 3. Publishes exactly two independent 600–900 word articles with unique search intent.
 4. Updates validation counts and all affected documentation.

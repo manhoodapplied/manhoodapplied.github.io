@@ -41,7 +41,7 @@ const socialPosts = defineCollection({
     title: z.string().min(5),
     description: z.string().min(30).max(180),
     publishedAt: z.coerce.date(),
-    contentType: z.enum(['carousel', 'reel']),
+    contentType: z.enum(['carousel', 'reel', 'question']),
     category: z.enum(['mind-judgment', 'body-health', 'work-money', 'relationships', 'character-discipline']),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
