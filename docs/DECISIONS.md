@@ -149,3 +149,5 @@
 **Content candidate:** Reconcile published carousel `014`, Reel `R012`, the YouTube/TikTok versions of R010 and the Facebook version of R011. Add exactly two standalone articles about cleaning up a social feed and building an adult social life. The resulting local gate is 21 articles and 26 social records: 13 carousels, 12 Reels and 1 Question; 13 articles are post-related and 8 are standalone.
 
 **Release boundary:** A passing local build is not a release. The Sep 4 platform actions produced exact verified URLs for R011 on YouTube/TikTok and R012 on Facebook, so the release candidate may be committed and pushed. Completion still requires a successful GitHub Pages workflow and production verification.
+
+**Deployment outcome:** Release commit `0df9dd6` passed GitHub Pages workflow `33926078036`. Production verification confirmed the new archive and article routes, exact R011/R012 platform links, robots and sitemap files, and the absence of a Threads destination.

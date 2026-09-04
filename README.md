@@ -8,7 +8,7 @@ The site is deliberately separate from the private MAPP content studio. The stud
 
 New Codex sessions and contributors must read [`AGENTS.md`](AGENTS.md) and the current [`public website handoff`](docs/HANDOFF.md) before making changes. The handoff records the deployed baseline, known platform gaps, visual behavior, release checks, and the cross-repository boundary.
 
-## Current local release candidate
+## Current deployed release
 
 - 21 independent articles and 26 separately validated social-post records: thirteen carousels, twelve Reels, and one Question.
 - Five topic archives, plus independent article, carousel, Reel, and Question indexes.
@@ -32,6 +32,6 @@ npm run verify
 
 ## Publishing status
 
-The deployed site remains on content release `cff2c31` with 19 articles and 23 social records. The local checkout contains the verified 21-article, 26-record release candidate with the exact R011 YouTube/TikTok and R012 Facebook URLs attached; it is ready for deployment. The site is live at <https://manhoodapplied.github.io/> from the public repository `manhoodapplied/manhoodapplied.github.io`. The free `manhoodapplied` organization is owned by both `mapp-publisher` and `pablobarriga`. Every push to `main` runs the included GitHub Pages workflow.
+Content release `0df9dd6` is deployed with 21 articles and 26 social records. It includes the exact R011 YouTube/TikTok and R012 Facebook URLs, the Question archive, two new standalone articles and the dead-Threads removal. The site is live at <https://manhoodapplied.github.io/> from the public repository `manhoodapplied/manhoodapplied.github.io`. The free `manhoodapplied` organization is owned by both `mapp-publisher` and `pablobarriga`. Every push to `main` runs the included GitHub Pages workflow.
 
 See the [current handoff](docs/HANDOFF.md), [Publishing](docs/PUBLISHING.md), [Architecture](docs/ARCHITECTURE.md), [SEO launch](docs/SEO-LAUNCH.md), and the [Decision log](docs/DECISIONS.md).

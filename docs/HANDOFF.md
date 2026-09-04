@@ -8,22 +8,22 @@ This is MAPP's public editorial and SEO surface. The private production studio a
 
 ## Current deployed state
 
-- Latest content release: commit `cff2c31`, successfully deployed September 2, 2026 through GitHub Pages workflow `33627315911`.
-- 19 articles: 13 related to a published social post and 6 independent search-led articles.
-- 23 independent social records: 12 carousels and 11 Reels.
-- The most recent website reconciliation added **The Shit You Eat Is Keeping You Numb**, **Self-Respect Is More Important Than Love**, and **Women Notice Men Other Women Want**; verified the TikTok/YouTube versions of **Nobody Is Coming to Save You**; added Facebook Reel support; and added official Facebook and Threads links.
+- Latest content release: commit `0df9dd6`, successfully deployed September 4, 2026 through GitHub Pages workflow `33926078036`.
+- 21 articles: 13 related to a published social post and 8 independent search-led articles.
+- 26 independent social records: 13 carousels, 12 Reels and 1 Question.
+- The most recent website reconciliation added carousel `014`, Reel `R012`, Question `Q001`, the exact recent Facebook/TikTok/YouTube versions, two standalone articles and the `/questions/` archive; it also removed the permanently dead Threads identity.
 - TikTok R003 remains absent because no exact live TikTok post could be verified.
 - GitHub Pages, HTTPS, canonical metadata, structured data, RSS, robots, sitemap generation, and Google Search Console ownership are configured.
 - The existing sitemap is the default discovery path for new releases. Manual Search Console indexing is separate and used only for explicitly selected priority articles.
 
-## September 4 verified release candidate — ready to deploy
+## September 4 deployed release
 
 - The verified local build contains 21 articles: 13 post-related and 8 standalone. The two new standalone articles are **How to Clean Up Your Social Media Feed Without Deleting Every App** and **How to Build a Social Life From Scratch as an Adult**.
 - It contains 26 independent social records: 13 carousels, 12 Reels and 1 single-image Question. The new records are carousel `014`, Reel `R012` and published question `Q001`; R010 includes its verified YouTube and TikTok URLs; R011 includes Facebook, YouTube `https://youtube.com/shorts/qz8M338kFYs` and TikTok `https://www.tiktok.com/@manhoodapplied/video/7681808179419696391`; and R012 includes Facebook `https://www.facebook.com/reel/2278243649593936/`.
 - The dead Threads profile has been removed from footer navigation and Organization structured data. Threads is permanently closed and is no longer an official public-site destination.
 - `/questions/` is the native-embed archive for the new Question format. The homepage, navigation, schema, related-post routing, validators and generated-site checks all recognize the format.
 - `npm run build` and `npm run verify` pass at 34 HTML pages, 21 articles and 26 social records. Desktop homepage, phone Question archive and phone article review passed with no Threads link or horizontal overflow.
-- The three distribution prerequisites are complete and independently verified: R011 is public on YouTube and visible to Everyone on TikTok, while R012 is Public on Facebook only. The release candidate may now be committed, pushed and verified through GitHub Pages.
+- The three distribution prerequisites are complete and independently verified: R011 is public on YouTube and visible to Everyone on TikTok, while R012 is Public on Facebook only. Release commit `0df9dd6` passed GitHub Pages workflow `33926078036`; production returned HTTP 200 for the homepage, archives, new articles, robots and both sitemap files, exposed all three new platform links, included the new routes in the sitemap and contained no Threads destination.
 
 ## September 2 deployed release
 

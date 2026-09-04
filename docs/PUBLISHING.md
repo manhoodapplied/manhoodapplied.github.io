@@ -97,11 +97,12 @@ The deployment cannot happen until the organization and repository exist. Do not
 - Release commit `cad24a8` passed the complete build and verification suite, GitHub Pages workflow `33625090265`, and production checks on September 2, 2026.
 - Content release `cff2c31` added the exact YouTube, TikTok, and Facebook versions of Reel `R009`, **Man Up and Keep Going**: `https://www.youtube.com/shorts/I8pkWBHG5ls`, `https://www.tiktok.com/@manhoodapplied/video/7680903978582035719`, and `https://www.facebook.com/reel/2436093416883557`. TikTok is verified **Everyone**; Facebook is Public and Facebook-only. GitHub Pages workflow `33627315911` succeeded, and the production Reels archive exposes all four R009 platform links.
 
-## Sep 4, 2026 verified release candidate
+## Sep 4, 2026 deployed release
 
 - Added verified published records for carousel `014`, **Your Feed Is Fucking With You**; Reel `R012`, **Stop Trying to Buy Her Interest**; and question `Q001`, **Your Ex Texts “I Miss You” at 1:17 A.M.**
 - Added the verified YouTube and TikTok versions of Reel `R010`; the verified Facebook, YouTube and TikTok versions of Reel `R011`; and the verified Facebook version of Reel `R012`.
 - Removed the permanently dead Threads profile and added the `/questions/` native-embed archive.
 - Added exactly two standalone articles: **How to Clean Up Your Social Media Feed Without Deleting Every App** and **How to Build a Social Life From Scratch as an Adult**. Both have independent search intent, no `sourcePostId`, and remain within the 600–900 word gate.
 - The local count gate is 21 articles and 26 social records: 13 carousels, 12 Reels and 1 Question; 13 articles are post-related and 8 are standalone. The build and generated-output verification pass.
-- The distribution prerequisites are complete: R011 is public on YouTube at `https://youtube.com/shorts/qz8M338kFYs` and visible to Everyone on TikTok at `https://www.tiktok.com/@manhoodapplied/video/7681808179419696391`; R012 is Public on Facebook at `https://www.facebook.com/reel/2278243649593936/`. The candidate is ready to build, verify, commit, push and verify on production.
+- The distribution prerequisites are complete: R011 is public on YouTube at `https://youtube.com/shorts/qz8M338kFYs` and visible to Everyone on TikTok at `https://www.tiktok.com/@manhoodapplied/video/7681808179419696391`; R012 is Public on Facebook at `https://www.facebook.com/reel/2278243649593936/`.
+- Release commit `0df9dd6` passed the complete local build and verification suite and GitHub Pages workflow `33926078036`. Production returned HTTP 200 for the homepage, Reels, Questions, both new articles, robots and sitemap files; exact R011/R012 links and new sitemap routes were present, and no Threads destination remained.
